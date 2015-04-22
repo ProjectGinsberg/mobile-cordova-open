@@ -5,7 +5,7 @@ angular.module('gb.home')
         restrict: 'E',
         link: function(scope, element, attrs) {
             scope.ThisWeekPeriodSelection = ThisWeekPeriodSelection;
-            //$scope.$watch('ThisWeekPeriodSelection');
+            
             scope.$watch('ThisWeekPeriodSelection.getPeriod()',function(newVal)
             {
                 scope.startDate = newVal.end;

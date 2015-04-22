@@ -11,7 +11,6 @@ angular.module('gb.home')
             if (content !== null) {
     			var x = content.replace(/(^|\s)(#[a-z\d-]+)/ig, "$1<span class='tag' data-tag='$2'>$2</span>");
     			scope.entry.entryContentHtml = $sce.trustAsHtml('<span>'+x+'</span>');
-                //console.log(element);
             }
 		},
 		templateUrl: 'templates/partials/this-week/diary-entry.html'

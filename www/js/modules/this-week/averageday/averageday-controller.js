@@ -9,7 +9,7 @@ function($scope,$rootScope, Stats,DataSeries,ThisWeekPeriodSelection) {
 		});
 		$scope.$watch(m+'DataSeries',function(newVal) {
 		});
-	})
+	});
 	var getForPeriod = function(period) {
 		var startDate = period.start,
 		endDate = period.end;
@@ -21,7 +21,7 @@ function($scope,$rootScope, Stats,DataSeries,ThisWeekPeriodSelection) {
 				interpolate: 'rolling',
 				window: 'day',
 				start: endDate,
-				end: startDate,
+				end: startDate
 			}, function(timeSeries) {
 				$scope[m+'DataSeries'] = timeSeries;
 			});
@@ -31,7 +31,7 @@ function($scope,$rootScope, Stats,DataSeries,ThisWeekPeriodSelection) {
 			Stats.get({
 				series: m,
 				start: endDate,
-				end: startDate,
+				end: startDate
 			}, function(data) {
 				if (data.count > 0) {
 					$scope[m + 'Mean'] = Math.floor(data.mean);
@@ -53,24 +53,21 @@ function($scope,$rootScope, Stats,DataSeries,ThisWeekPeriodSelection) {
 			var empty;
 			if (typeof $scope[v] === 'undefined') return false;
 			return true;
-			/*if (defined)
-				empty = !(eval("$scope." + v) || eval("$scope." + v) == 0);
-				return (defined && !empty);*/
-		}
+		};
 	};
 
 	$scope.$watch('weekStart',function() {
 		getForPeriod({
 			end:$scope.weekStart,
 			start:$scope.weekEnd
-		})
+		});
 	});
 	$scope.$watch('currentTab',function(newVal) {
 		if (newVal === 'This Week') {
 			getForPeriod({
 				end:$scope.weekStart,
 				start:$scope.weekEnd
-			})
+			});
 		}
 	});
 }]);

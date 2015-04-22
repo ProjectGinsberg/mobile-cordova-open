@@ -21,10 +21,10 @@ angular.module('gb.home')
 
 		impl.getStart = function() {
 			return period.start;
-		}
+		};
 		impl.getEnd = function() {
 			return period.end;
-		}
+		};
 		impl.getPeriod = function() {
 			return {
 				start: period.start.toISOString(),

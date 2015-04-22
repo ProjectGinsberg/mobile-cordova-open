@@ -43,22 +43,22 @@ directives.directive('diaryEventEditor', ["$log", function($log) {
 				selection[0].characterRange.end += 0 + text.length;
 			}
 			scope.entry.entryContent = scope.entry.entryContent.substr(0, index) + text + scope.entry.entryContent.substr(index);
-		}
+		};
 
 		// If the user is part way through a tag, then just insert the suffix
 		// otherwise inserts the whole tag
 		scope.complete = function(tag) {
-			if (tagPrefix == null) return;
+			if (tagPrefix === null) return;
 			var tagSuffix = tag.substr(tagPrefix.length);
 			scope.insert(tagSuffix);
-		}
+		};
 
 		// Trying to restore an invalid selection appeared to be the cause of #463
 		// FIXME: Provide an API for manipulating text rather than accessing a
 		// scope variable directly. The setter can clear the selection.
 		scope.clearSelection = function() {
 			selection = undefined;
-		}
+		};
 
 		// Update the contents depending on
 		scope.$watch("entry.entryContent", function() {
@@ -81,9 +81,9 @@ directives.directive('diaryEventEditor', ["$log", function($log) {
 			//$log.log("Updating from keyboard");
 			var text = rangy.innerText(this);  		// This strips all tags
 			scope.entry.entryContent = text;
-			if (evt.keyCode == 13) {
+			if (evt.keyCode === 13) {
 				// Special case -- if there's one tag complete on enter
-				if (scope.suggestedTags.length == 1) {
+				if (scope.suggestedTags.length === 1) {
 					scope.complete(scope.suggestedTags[0]);
 					evt.preventDefault();
 					evt.stopPropagation();
@@ -100,7 +100,7 @@ directives.directive('diaryEventEditor', ["$log", function($log) {
 			// Tag autocomplete
 			var caretPosition = selection[0].characterRange.start;
 			var match = text.substr(0, caretPosition).match(/([#]+[A-Za-z0-9-_:!?]+)$/)
-			tagPrefix = (match != null ? match[0].substr(1) : null);
+			tagPrefix = (match !== null ? match[0].substr(1) : null);
 			scope.setTagPrefix(tagPrefix);
 			scope.$digest();
 		});

@@ -3,7 +3,7 @@ angular.module('gb.home')
 	['$scope','Events','Tags','ThisWeekPeriodSelection', function($scope,Events,Tags,
 																	ThisWeekPeriodSelection) {
 		$scope.ThisWeekPeriodSelection = ThisWeekPeriodSelection;
-		//$scope.$watch('ThisWeekPeriodSelection');
+		
 		$scope.$watch('ThisWeekPeriodSelection.getPeriod()',function(newVal)
 		{
 			getForPeriod(newVal);

@@ -56,7 +56,7 @@
            });
   		};
       impl.updateChart = function(data) {
-          var circles = svg.selectAll("circle").data(data.scores, function(d){ return d.score})
+          var circles = svg.selectAll("circle").data(data.scores, function(d){ return d.score;});
           circles.exit().remove();
 
           var update = circles.transition();
@@ -72,7 +72,7 @@
            .attr('opacity',1)
            .attr('stroke','grey')
            .attr('stroke-width',function(d) {
-               if (d.count == 0) return '1px';
+               if (d.count === 0) return '1px';
                return '0px';
            })
            .attr('stroke-opacity',0.75);

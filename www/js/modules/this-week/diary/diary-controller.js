@@ -20,7 +20,7 @@ angular.module('gb.home')
 						newEntries.push({
 							entryDay: currentDay.clone(),
 							entryContent: null
-						})
+						});
 				}
 				currentDay.add(1,'days');
 			}
@@ -66,14 +66,14 @@ angular.module('gb.home')
 			getForPeriod({
 				end:$scope.weekStart,
 				start:$scope.weekEnd
-			})
+			});
 		});
 		$scope.$watch('currentTab',function(newVal) {
 			if (newVal === 'This Week') {
 				getForPeriod({
 					end:$scope.weekStart,
 					start:$scope.weekEnd
-				})
+				});
 			}
 		});
 		$scope.trusted = function(html) {
