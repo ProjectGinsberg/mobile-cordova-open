@@ -1,0 +1,77 @@
+//Color constants
+
+//Brand color values
+$ginsbergStart: #75BF5C;
+$ginsbergMid:   #5CBF96;
+$ginsbergEnd:   #5CAFBF;
+
+//5 point scale color values
+$great:         rgba(91,191,149,0.85);
+$good:          rgba(112,191,92,0.85);
+$ok:            rgba(191,191,92,0.85);
+$bad:           rgba(191,150,92,0.85);
+$terrible:      rgba(191,103,92,0.85);
+
+//Data type color values
+$wellbeingStart:#9BBF5C;
+$wellbeingEnd:  #5CBF9B;
+
+$journalStart:  #B0A3CC;
+$journalMid:    #A890C6;
+$journalEnd:    #A07CBF;
+
+$sleepStart:    #5CB7BF;
+$sleepMid:      #5C9ABF;
+$sleepEnd:      #5C7FBF;
+
+$stepsStart:    #BFBF5C;
+$stepsMid:      #BFB25C;
+$stepsEnd:      #BFA65C;
+
+$exerciseStart: #5CBF9B;
+$exerciseMid:   #5CB6AD;
+$exerciseEnd:   #5CADBF;
+
+$nutritionStart:#BF975C;
+$nutritionMid:  #BF815C;
+$nutritionEnd:  #BF695C; 
+
+$weightStart:   #BF5C5C;
+$weightMid:     #BF5C72;
+$weightEnd:     #BF5C89; 
+
+$alcoholStart:  #757575;
+$alcoholMid:    #5C5C5C;
+$alcoholEnd:    #434343;
+
+$socialStart:   #D293B5;
+$socialMid:     #D293B5;
+$socialEnd:     #D293B5;
+
+//Typography colours
+$textDark:      #545454;
+$textMid:       #848484;
+$textLight:     #A0A0A0;
+
+//ionic color overrides
+$balanced:    #5CBF96;
+$calm:        #bebe82;
+$energized:       #bea582;
+$assertive:  #c58077;
+$positive: $ginsbergMid !default; /* Ginsberg mid green */
+
+$wellbeingStrongAgreeColour: $great;
+$wellbeingAgreeColour: $good;
+$wellbeingUndecidedColour: $ok;
+$wellbeingDisagreeColour: $bad;
+$wellbeingStrongDisagreeColour: $terrible;
+
+$borderColour: #dddddd;
+$lightGrey: #f4f4f4;
+
+$smallVerticalMargin: 10px;
+
+//Text sizes
+$textSmall:     11px;
+$textBody:      14px;
+$textH4:        15px;       

@@ -1,0 +1,35 @@
+<ion-view on-swipe-left="" on-swipe-right="">
+   <ion-content class="">
+    <div class="signup-header">
+        <a href="#/tour/track"  class="button icon-left ion-chevron-left button-clear button-positive">Back</a>
+    </div>
+    <div ng-controller="TrackEmotionCtrl" class="signup-slide">
+        <div class="tour-title">
+            <h2>Select up to 3 wellbeing measures to track</h2>
+        </div>
+        <div class="tour-description">
+            <h3>You can change these at any time.</h3>
+        </div>
+        <!--<sections-config></sections-config>-->
+        <ion-list>
+            <div class="list list-inset">
+                <ion-item
+                    class="animate-repeat item item-checkbox"
+                    ng-repeat="question in questions | limitTo:valueLimit">
+                    <label class="checkbox">
+                      <input
+                       ng-disabled="selectedQuestions() > 2 && !question.interested"
+                       ng-model="question.interested" type="checkbox">
+                    </label>
+                    {{question.question}}
+                  </ion-item>
+            </div>
+        </ion-list>
+        <div class="list-inset show-more">
+            <button ng-show="valueLimit < questions.length" class="button-block button button-outline button-positive" ng-click="showMore()">Show More</button>
+            <button class="button button-block button-positive" ng-click="saveQuestions();">Submit</button>
+
+        </div>
+    </div>
+    </ion-content>
+</ion-view>

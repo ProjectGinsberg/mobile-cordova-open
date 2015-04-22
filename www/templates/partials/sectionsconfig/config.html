@@ -1,0 +1,13 @@
+<div class="tour-track">
+    <ul class="list list-inset">
+        <li ng-repeat="section in userSections | filter:'!wellbeing'" class="item item-checkbox">
+           <label class="checkbox">
+             <input ng-model="section.interested" type="checkbox" checked>
+           </label>
+           {{section.section}}
+           <!--<ion-reorder-button class="ion-navicon pull-right"
+                       on-reorder="reorderItem(item, $fromIndex, $toIndex)">
+           </ion-reorder-button>-->
+       </li>
+   </ul>
+</div>

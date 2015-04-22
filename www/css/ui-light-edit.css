@@ -1,0 +1,107 @@
+/* Edited version of lib/Microsoft.WinJS.4.0/css/ui-light.css */
+
+.win-timepicker {
+  display: -ms-inline-flexbox;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  height: auto;
+  width: auto;
+}
+.win-timepicker select {
+  min-width: 45px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+.win-timepicker .win-timepicker-hour {
+  margin-right: 5px;
+}
+.win-timepicker .win-timepicker-period.win-order0 {
+  margin-right: 20px;
+}
+.win-timepicker .win-timepicker-minute.win-order1 {
+  margin-right: 20px;
+}
+.win-timepicker .win-timepicker-period.win-order0:lang(ar),
+.win-timepicker .win-timepicker-period.win-order0:lang(dv),
+.win-timepicker .win-timepicker-period.win-order0:lang(fa),
+.win-timepicker .win-timepicker-period.win-order0:lang(he),
+.win-timepicker .win-timepicker-period.win-order0:lang(ku-Arab),
+.win-timepicker .win-timepicker-period.win-order0:lang(pa-Arab),
+.win-timepicker .win-timepicker-period.win-order0:lang(prs),
+.win-timepicker .win-timepicker-period.win-order0:lang(ps),
+.win-timepicker .win-timepicker-period.win-order0:lang(sd-Arab),
+.win-timepicker .win-timepicker-period.win-order0:lang(syr),
+.win-timepicker .win-timepicker-period.win-order0:lang(ug),
+.win-timepicker .win-timepicker-period.win-order0:lang(ur),
+.win-timepicker .win-timepicker-period.win-order0:lang(qps-plocm),
+.win-timepicker .win-timepicker-hour:lang(ar),
+.win-timepicker .win-timepicker-hour:lang(dv),
+.win-timepicker .win-timepicker-hour:lang(fa),
+.win-timepicker .win-timepicker-hour:lang(he),
+.win-timepicker .win-timepicker-hour:lang(ku-Arab),
+.win-timepicker .win-timepicker-hour:lang(pa-Arab),
+.win-timepicker .win-timepicker-hour:lang(prs),
+.win-timepicker .win-timepicker-hour:lang(ps),
+.win-timepicker .win-timepicker-hour:lang(sd-Arab),
+.win-timepicker .win-timepicker-hour:lang(syr),
+.win-timepicker .win-timepicker-hour:lang(ug),
+.win-timepicker .win-timepicker-hour:lang(ur),
+.win-timepicker .win-timepicker-hour:lang(qps-plocm) {
+  margin-right: 0;
+  margin-left: 20px;
+}
+.win-timepicker .win-timepicker-minute.win-order1:lang(ar),
+.win-timepicker .win-timepicker-minute.win-order1:lang(dv),
+.win-timepicker .win-timepicker-minute.win-order1:lang(fa),
+.win-timepicker .win-timepicker-minute.win-order1:lang(he),
+.win-timepicker .win-timepicker-minute.win-order1:lang(ku-Arab),
+.win-timepicker .win-timepicker-minute.win-order1:lang(pa-Arab),
+.win-timepicker .win-timepicker-minute.win-order1:lang(prs),
+.win-timepicker .win-timepicker-minute.win-order1:lang(ps),
+.win-timepicker .win-timepicker-minute.win-order1:lang(sd-Arab),
+.win-timepicker .win-timepicker-minute.win-order1:lang(syr),
+.win-timepicker .win-timepicker-minute.win-order1:lang(ug),
+.win-timepicker .win-timepicker-minute.win-order1:lang(ur),
+.win-timepicker .win-timepicker-minute.win-order1:lang(qps-plocm),
+.win-timepicker .win-timepicker-minute.win-order0:lang(ar),
+.win-timepicker .win-timepicker-minute.win-order0:lang(dv),
+.win-timepicker .win-timepicker-minute.win-order0:lang(fa),
+.win-timepicker .win-timepicker-minute.win-order0:lang(he),
+.win-timepicker .win-timepicker-minute.win-order0:lang(ku-Arab),
+.win-timepicker .win-timepicker-minute.win-order0:lang(pa-Arab),
+.win-timepicker .win-timepicker-minute.win-order0:lang(prs),
+.win-timepicker .win-timepicker-minute.win-order0:lang(ps),
+.win-timepicker .win-timepicker-minute.win-order0:lang(sd-Arab),
+.win-timepicker .win-timepicker-minute.win-order0:lang(syr),
+.win-timepicker .win-timepicker-minute.win-order0:lang(ug),
+.win-timepicker .win-timepicker-minute.win-order0:lang(ur),
+.win-timepicker .win-timepicker-minute.win-order0:lang(qps-plocm) {
+  margin-left: 20px;
+  margin-right: 0;
+}
+
+
+
+
+
+select {
+  color: #666;
+  background-color: white;
+  border-color: #d4d4d4;
+}
+select::-ms-expand {
+  color: rgba(0, 0, 0, 0.8);
+  background-color: transparent;
+}
+select:hover {
+  background-color: #f2f2f2;
+  border-color: #d4d4d4;
+}
+select:disabled {
+  color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.2);
+}
+select:disabled::-ms-expand {
+  color: rgba(0, 0, 0, 0.2);
+  border-color: rgba(0, 0, 0, 0.2);
+}

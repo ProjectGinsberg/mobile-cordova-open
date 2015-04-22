@@ -1,0 +1,38 @@
+<ion-header-bar align-title="center" class="bar bar-header">
+
+    <div class="page-title"><h3>This Week</h3></div>
+</ion-header-bar>
+
+<ion-header-bar align-title="left" class="bar bar-subheader date-subheader">
+    <div class="pull-left">
+        <button class="button button-positive great icon-left ion-chevron-left button-clear" ng-click="prevWeek()"></button>
+    </div>
+
+     <div class="date-wrapper">
+         <display style="display:inherit" class="padding-horizontal date">
+             <div class="date-week">{{weekStart | date: "dd MMM yy" : 'GMT'}} - {{weekEnd | date: "dd MMM yy" : 'GMT'}}</div>
+         </display>
+     </div>
+
+    <div class="buttons pull-right">
+        <button class="button button-positive icon-right ion-chevron-right great button-clear" ng-click="nextWeek()"></button>
+    </div>
+</ion-header-bar>
+
+
+<ion-view on-swipe-left="nextWeek()" on-swipe-right="prevWeek()">
+   <ion-content  ng-show="contentLoaded" ng-animate class="padding background animate-show">
+
+    <div ng-controller="DiaryController" class="list card diaryCard">
+        <div class="item item-divider header"><img class="header-icon" style="width:20px;height:20px" src="img/icon-journal.svg" /></i><div class='padding-left card-title'>Diary</div></div>
+        <div class="diary">
+            <div ng-repeat="entry in entries">
+                <diary-entry></diary-entry>
+            </div>
+        </div>
+    </div>
+    <div ng-controller="AverageDayController">
+        <average-day></average-day>
+    </div>
+    </ion-content>
+</ion-view>

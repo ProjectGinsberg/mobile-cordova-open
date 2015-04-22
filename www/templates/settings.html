@@ -1,0 +1,116 @@
+<ion-header-bar align-title="center" class="bar bar-header">
+   <div class="pull-left">
+
+   </div>
+    <div class="page-title"><h3>Settings</h3></div>
+
+<div class="pull-right">
+
+       <button class="button-header button button-light great button-clear" ng-click="save()">Save</button>
+</div>
+</ion-header-bar>
+<ion-view on-swipe-left="" on-swipe-right="">
+   <ion-content class="padding background">
+      <div>
+          <div class="card settingsCard">
+            <div class="item item-divider header">
+                <span class='card-title'>Profile</span>
+            </div>
+            <div class="form list list-inset">
+
+                <div class="item item-body">
+                    <label class="item item-input">
+                        <span class="input-label">First Name</span>
+                        <input type="text" placeholder="First Name" ng-model="firstNameEntry"/>
+                    </label>
+                </div>
+
+                <!--div class="item item-body">
+                    <label class="item item-input">
+                        <span class="input-label">Phone Number</span>
+                        <input type="text" placeholder="Phone Number" ng-model="phoneNumberEntry"/>
+                    </label>
+                </div-->
+
+                <div class="item item-body">
+                    <div class="item-input button-logout">
+                        <button class="button button-terrible button button-small" style="width:70px;" ng-click="logout()">Log out</button>
+                    </div>
+                </div>
+            </div>
+
+          </div>
+         <!--div class="item item-body">
+             <textarea ng-model="firstNameEntry"></textarea>
+         </div-->
+         <div class="card settingsCard">
+            <div class="item item-divider header">
+                <span class='card-title'>Tracking</span>
+                <!--<i style="float:right" ng-click="reorderTracking = !reorderTracking" class="icon ion-navicon-round pull-right"></i>-->
+            </div>
+            <sections-config></sections-config>
+         </div>
+         <div class="card settingsCard">
+            <div class="item item-divider header">
+                <span class='card-title'>Connections</span>
+            </div>
+            <div class="list">
+                <span class="padding">Connect other apps to Ginsberg</span>
+                <button ng-click="loadConnections()" class="button button-block button-positive">Go to Connections</button>
+            </div>
+      </div>
+
+      <div class="card settingsCard">
+         <div class="item item-divider header">
+             <span class='card-title'>Emotions</span>
+         </div>
+         <div ng-controller="SettingsEmotionCtrl" class="">
+             <!--<sections-config></sections-config>-->
+             <ion-list>
+                 <div class="list list-inset">
+                     <ion-item
+                         class="animate-repeat item item-checkbox"
+                         ng-repeat="question in questions | limitTo:valueLimit">
+                         <label class="checkbox">
+                           <input
+                            ng-disabled="selectedQuestions() > 2 && !question.interested"
+                            ng-model="question.interested" type="checkbox">
+                         </label>
+                         {{question.question}}
+                       </ion-item>
+                 </div>
+             </ion-list>
+             <div class="list-inset show-more">
+                 <button ng-show="valueLimit < questions.length" class="button-block button button-outline button-positive" ng-click="showMore()">Show More</button>
+             </div>
+         </div>
+      </div>
+
+         <div class="card settingsCard" id="NotificationCard">
+            <div class="item item-divider header">
+                <span class='card-title'>Notification</span>
+            </div>
+            <div class="item item-input">
+                <span class="input-label">Notification {{notificationOn? "On": "Off"}}</span>
+                <div class="input-field" id="NotificationTime" data-tap-disabled="true"><div class="time-picker" id="NativeTime" ng-click="showTimePicker()">{{notificationTime | date:'HH:mm'}}</div></div>
+             </div>
+            <button ng-click="switchNotification()" class="button button-block button-positive">{{notificationOn? 'Disable': 'Enable'}}</button>
+      </div>
+      <button class="button-block button-balanced button" ng-click="openDisableModal()">Disable Account</button>
+      <button class="button-block button-balanced button" ng-click="save()">Save</button>
+      <div class="card settingsCard">
+         <div class="item item-divider header">
+             <span class='card-title'>App Info</span>
+         </div>
+         <div class="list">
+         <div class="item">
+                <span>App Version: Beautiful Banoffee (2.0.0)</span>
+         </div>
+         <div class="item">
+                <span>Bugs and comments: <u><a class="link" ng-click="loadUserVoice()">ginsberg.uservoice.com</a></u></span>
+         </div>
+         </div>
+      </div>
+
+   </ion-content>
+</ion-view>

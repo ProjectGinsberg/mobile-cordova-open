@@ -1,0 +1,325 @@
+
+.card, .wellbeingCard {
+    background-color:white;
+}
+
+//Wellbeing card formatting
+.wellbeingAnswer {
+    font-weight:600;
+}
+
+.wellbeingContainer {
+    margin:24px 0;
+}
+
+.wellbeingCard {
+    border-radius:8px;
+}
+
+
+.card {
+    border-radius:8px;
+    border:1px solid $borderColour;
+    box-shadow:0 2px 4px rgba(0,0,0,0.05);
+    margin:15px 10px 15px 10px;
+
+    .header {                           //Card header height
+        height:36px;
+        padding:7px 10px !important;
+    }
+
+    .header-icon {                      //Card header icon
+        float:left;
+    }
+
+    .card-title {                       //Card header text styling
+        color:white;
+        text-transform: uppercase;
+        float:left;
+        font-weight:600;
+        padding-top:1px;
+        font-size:15px;
+    }
+
+    .card-subtitle {                    //Card subheader (Used on graph page)
+        color:white;
+        float:right;
+    }
+
+    .item, .item-content, .item-body {
+        padding:0;                      //Removed padding from item to allow for full width divider lines between rows
+    }
+
+
+    .item-input {                       //Card row with input formatting
+        display:block;
+        padding:5px 10px;
+        min-height:46px;
+    }
+
+    .item-add {                         //Add button row formatting
+        padding:0;
+        min-height:48px;
+        border-top:1px solid $borderColour;
+
+    }
+
+    .input-label {                      //Left aligned label on input rows
+        float:left;
+        padding-top:9px;
+        padding-bottom:9px;
+    }
+
+    .item.item-input input {
+        padding-right:0;
+        padding-top:0;
+        font-size:15px !important;
+        color:$textMid !important;
+    }
+    .input-field {                      //Text input boxes on input rows
+        border:1px solid $borderColour;
+        border-radius:6px;
+        padding:0px 5px;
+        float:right;
+        width:90px;
+    }
+
+    .item-select select {               //Drop down boxes on input rows
+        font-size:15px !important;
+        color:$textMid !important;
+        padding:0 30px 0 10px;
+        border:1px solid $borderColour;
+        height:36px;
+        margin-top:7px;
+        margin-right:10px;
+    }
+
+    .item-select:after {                //Repositioned drop down arrow on input rows
+        right:20px;
+    }
+
+    .range {                            //Range slider on input rows
+        padding:0;
+        input {
+            height:35px;
+            margin:0 8px;
+        }
+    }
+
+    .item-metric {                      //Input metric after text input box (Used in weight and nutrition cards)
+        float:right;
+        padding-top:9px;
+        margin-left:8px;
+    }
+
+    .input-review {                     //Right aligned text shwoing the entered data on collapsed row
+        font-size: 15px !important;
+        font-weight:500;
+        margin-top:9px !important;
+    }
+
+    .item-icon {                        //Card icon styling (Used in sleep card)
+        float:left;
+        margin-right:10px;
+        margin-top:8px;
+    }
+
+    .item-delete .button.icon {         //Removed padding from delete button that appears on each row
+        padding:0;
+    }
+
+    .item-left-editing.item-left-editable .item-content, .list-left-editing .item-left-editable .item-content {
+        transform: translate3d(38px,0,0);   //Delete in animation
+    }
+
+
+}
+
+//Card header colour styles
+.wellbeingCard {
+    .header {
+        background-color:$wellbeingEnd;
+        background-image:linear-gradient($wellbeingStart, $wellbeingEnd) !important;
+    }
+}
+
+.diaryCard {
+    .header {
+        background-color:$journalMid;
+        background-image:linear-gradient($journalStart, $journalEnd) !important;
+    }
+}
+.sleepCard {
+    .header {
+        background-color:$sleepMid;
+        background-image:linear-gradient($sleepStart, $sleepEnd) !important;
+    }
+}
+.exerciseCard {
+    .header {
+        background-color:$exerciseMid;
+        background-image:linear-gradient($exerciseStart, $exerciseEnd) !important;
+    }
+}
+.stepsCard {
+    .header {
+        background-color:$stepsMid;
+        background-image:linear-gradient($stepsStart, $stepsEnd) !important;
+    }
+}
+.nutritionCard {
+    .header {
+        background-color:$nutritionMid;
+        background-image:linear-gradient($nutritionStart, $nutritionEnd) !important;
+    }
+}
+.weightCard {
+    .header {
+        background-color:$weightMid;
+        background-image:linear-gradient($weightStart, $weightEnd) !important;
+    }
+}
+.alcoholCard {
+    .header {
+        background-color:$alcoholMid;
+        background-image:linear-gradient($alcoholStart, $alcoholEnd) !important;
+    }
+}
+
+
+.diaryCard {                                //Diary card overrides
+    .item-body {
+        height:120px;
+        padding:10px;
+    }
+    textarea {
+        height:100%;
+        padding:10px;
+    }
+}
+
+
+.settingsCard {                             //Settings card overrides
+
+    .card-title {
+        color:$textMid;
+    }
+    .item-checkbox {
+        padding:16px 16px 16px 60px;
+    }
+    .item-input {
+        padding:5px 10px 5px 10px !important;
+    }
+    .input-label {
+        padding-bottom:5px;
+    }
+    .list-inset {
+        margin:1px 0;
+    }
+}
+
+.quality-btn {                              //Sleep quality buttons
+    padding-left:2px;
+    padding-right:2px;
+    .button {
+        margin:0;
+        font-size:12px !important;
+    }
+    .button-outline {
+        border-color:$borderColour !important;
+    }
+}
+
+.time-picker {
+    padding-top:8px !important;             //override vertical alignment of time input field for sleep
+}
+
+.large-number {                             //Large number (Used in alcohol to show units)
+    font-size:20px;
+    color:$textMid;
+    font-weight:600;
+}
+
+.newExercise {                              //Exercise row override due to drop down setup
+    height:50px !important;
+    padding-top:6px !important;
+}
+
+.wellbeingCard .header {                    //headers for wellbeing on graph page (allows for multiple lines of text)
+    height:auto;
+    .card-title {
+        padding:0 !important;
+        text-transform:none;
+        white-space:normal;
+    }
+}
+
+.review {                                   //Overrides for text boxes that have been stored and are no longer editable
+    input {
+        text-align:right;
+    }
+    border-color:transparent !important;
+    padding-right:0 !important;
+}
+
+.quality-tag {                              //quality of sleep tag styling
+    margin-top:4px;
+    min-width:18%;
+    height:20px;
+    line-height:12px;
+    margin-right:10px;
+}
+
+//store and add button colours
+.sleepCard .button-store {
+    background-color:$sleepMid !important;
+    border-color:$sleepMid - #111 !important;
+    color:white !important;
+}
+.sleepCard .button-add, .sleepCard .ion-plus:before {
+    color: $sleepMid !important;
+}
+
+.stepsCard .button-store {
+    background-color:$stepsMid !important;
+    border-color:$stepsMid - #111 !important;
+    color:white !important;
+}
+.stepsCard .button-add, .stepsCard .ion-plus:before {
+    color: $stepsMid !important;
+}
+
+.exerciseCard .button-store {
+    background-color:$exerciseMid !important;
+    border-color:$exerciseMid - #111 !important;
+    color:white !important;
+}
+.exerciseCard .button-add, .exerciseCard .ion-plus:before {
+    color: $exerciseMid !important;
+}
+
+.nutritionCard .button-store {
+    background-color:$nutritionMid !important;
+    border-color:$nutritionMid - #111 !important;
+    color:white !important;
+}
+.nutritionCard .button-add, .nutritionCard .ion-plus:before {
+    color: $nutritionMid !important;
+}
+
+.weightCard .button-store {
+    background-color:$weightMid !important;
+    border-color:$weightMid - #111 !important;
+    color:white !important;
+}
+.weightCard .button-add, .weightCard .ion-plus:before {
+    color: $weightMid !important;
+}
+.alcoholCard .button-store {
+    background-color:$alcoholMid !important;
+    border-color:$alcoholMid - #111 !important;
+    color:white !important;
+}
+.alcoholCard .button-add, .alcoholCard .ion-plus:before {
+    color: $alcoholMid !important;
+}

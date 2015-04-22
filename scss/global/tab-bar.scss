@@ -1,0 +1,27 @@
+/* Tab Bar Icons */
+.tabs {
+    padding-top:3px;
+    border-color:#ddd;
+}
+
+.tabbaricon {
+    width:30px !important;
+    height:30px !important;
+}
+
+.tabbaricon-home-off {background-image: url('../img/tabbaricon-home-off.svg');color:#82BE99;}
+.tabbaricon-home-on {background-image: url('../img/tabbaricon-home-on.svg');color:#82BE99;}
+
+.tabbaricon-graph-off {background-image: url('../img/tabbaricon-graph-off.svg');color:#82BE99;}
+.tabbaricon-graph-on {background-image: url('../img/tabbaricon-graph-on.svg');color:#82BE99;}
+
+.tabbaricon-thisweek-off {background-image: url('../img/tabbaricon-thisweek-off.svg');color:#82BE99;}
+.tabbaricon-thisweek-on {background-image: url('../img/tabbaricon-thisweek-on.svg');color:#82BE99;}
+
+.tabbaricon-settings-off {background-image: url('../img/tabbaricon-settings-off.svg');color:#82BE99;}
+.tabbaricon-settings-on {background-image: url('../img/tabbaricon-settings-on.svg');color:#82BE99;}
+
+.tab-title {
+    color:#73a17f;
+}
+

@@ -1,0 +1,78 @@
+/* Diary */
+.diary {
+    padding: 10px;
+}
+.diaryEntry {
+    padding:5px 0px;
+}
+
+.diaryDay, .diaryDayNum {
+    font-size:12px;
+    color:$textLight;
+}
+
+.diaryEntry .tag {
+    padding:0 3px;
+    margin:0;
+}
+
+/* Average/Total this week card */
+.value {
+    text-align:center;
+    font-size:22px;
+}
+
+.titleText, .no-data {
+    text-align:center;
+    line-height:17px;
+}
+
+.sleep .value {
+    color:$sleepMid !important;
+}
+
+.steps .value {
+    color:$stepsMid !important;
+}
+ 
+.nutrition .value {
+    color:$nutritionMid !important;
+}
+
+.exercise .value {
+    color:$exerciseMid !important;
+}
+
+.alcohol .value {
+    color:$alcoholMid !important;
+}
+
+.social .value {
+    color:$socialMid !important;
+}
+
+.averageCard {
+    
+    .card-title {
+        color:$textMid;
+    }
+}
+
+.event-chart {
+    margin-bottom:10px;
+}
+.value-wrapper {
+    width:100%;
+    text-align:center;
+    margin-bottom:2px;
+}
+
+.averagePerDayMeasure {
+    padding:15px 0;
+}
+
+.no-data {
+    text-align:center;
+    display:inline-block;
+}
+

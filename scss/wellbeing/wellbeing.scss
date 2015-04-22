@@ -1,0 +1,69 @@
+.wellbeingContainer {
+    margin:10px 25px 25px 25px
+}
+.questionHeader {
+    text-align:center !important;
+    width:100%;
+}
+.wellbeingCard {
+    .wellbeingAnswer {
+        border-left:1px solid $borderColour;
+        border-right:1px solid $borderColour;
+        border-top:1px solid $borderColour;
+        text-align:center;
+        padding:5px 5px 5px 5px;
+    }
+    .wellbeingAnswer:first-child {
+        border-top-left-radius:5px;
+        border-top-right-radius:5px;
+    }
+    .wellbeingAnswer:last-child {
+        border-bottom-left-radius:5px;
+        border-bottom-right-radius:5px;
+        border-bottom:1px solid $borderColour;
+    }
+}
+.sa {
+    &.active {
+        background-color:$wellbeingStrongAgreeColour;
+        color:white;
+    }
+    &:not(.active) {
+        color:$wellbeingStrongAgreeColour;
+    }
+}
+.a {
+    &.active {
+        background-color:$wellbeingAgreeColour;
+        color:white;
+    }
+    &:not(.active) {
+        color:$wellbeingAgreeColour;
+    }
+}
+.u {
+    &.active {
+        background-color:$wellbeingUndecidedColour;
+        color:white;
+    } &:not(.active) {
+        color:$wellbeingUndecidedColour;
+    }
+}
+.d {
+    &.active {
+        background-color:$wellbeingDisagreeColour;
+        color:white;
+    }
+    &:not(.active) {
+        color:$wellbeingDisagreeColour;
+    }
+}
+.sd {
+    &.active {
+        background-color:$wellbeingStrongDisagreeColour;
+        color:white;
+    }
+    &:not(.active) {
+        color:$wellbeingStrongDisagreeColour;
+    }
+}

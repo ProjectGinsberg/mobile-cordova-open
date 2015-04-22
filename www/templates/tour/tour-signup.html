@@ -1,0 +1,39 @@
+<ion-view>
+   <ion-content ng-controller="SignupCtrl" class="">
+       <div class="signup-header">
+        <a href="#/tour/welcome" class="button icon-left ion-chevron-left button-clear button-positive">Back</a>
+    </div>
+
+<div class="signup-slide">
+    <div class="signup-title">
+        <h2>Sign Up</h2>
+    </div>
+    <div>
+        <span class="assertive" ng-bind="errorMessage"></span>
+    </div>
+    <div class="list list-inset">
+        <label class="signup-item item-input">
+          <input class="form-first" type="text" ng-model="firstName" required placeholder="First Name (required)">
+        </label>
+        <label class="signup-item item-input">
+          <input class="input-required" type="email" ng-model="email" required placeholder="Email Address (required)">
+        </label>
+        <label class="signup-item item-input">
+            <input class="input-required" type="password" ng-model="password" required placeholder="Password (required)">
+        </label>
+        <label class="signup-item item-input">
+            <input class="input-required form-last" type="password" ng-model="confirmPassword" required placeholder="Confirm Password">
+        </label>
+    </div>
+    <li style="border-radius:6px;" class="item item-checkbox list-inset">
+        <label class="checkbox">
+          <input type="checkbox" ng-model="wantsNewsletter" checked>
+        </label>
+        Sign up to our newsletter
+    </li>
+     <div class="list-inset">
+         <a ng-click="signup()" class="button button-block button-positive">Submit</a>
+     </div>
+</div>
+</ion-content>
+</ion-view>

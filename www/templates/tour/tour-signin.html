@@ -1,0 +1,26 @@
+<ion-view>
+<ion-content ng-controller="SignInCtrl" class="">
+    <div class="signup-header">
+        <a href="#/tour/welcome" class="button icon-left ion-chevron-left button-clear button-positive">Back</a>
+    </div>
+    <div class="signup-slide">
+        <div class="signup-title">
+            <h2>Sign In</h2>
+        </div>
+        <div>
+            <span class="assertive" ng-bind="loginMessage"></span>
+        </div>
+        <div class="list list-inset">
+            <label class="signup-item item-input">
+              <input class="form-first" type="text" ng-model="email" required placeholder="Email Address">
+            </label>
+            <label class="signup-item item-input">
+              <input class="form-last" type="password" ng-model="password" required placeholder="Password">
+            </label>
+        </div>
+        <div class="list-inset">
+            <button ng-click="login()" class="button button-full button-positive">Sign in</button>
+        </div>
+    </div>
+</ion-content>
+</ion-view>

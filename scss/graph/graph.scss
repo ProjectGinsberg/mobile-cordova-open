@@ -1,0 +1,47 @@
+.nv-x .tick line {                  //turn off vertical x axis lines
+    display:none !important;
+}
+
+rect {                              //don't have transparent bars
+    fill-opacity:1 !important;
+}
+
+.stepsCard {                        //set steps bar chart colour
+    rect {
+        fill:$stepsMid; 
+    }
+}
+
+.nutritionCard {                    //set nutrition bar chart colour
+    rect { 
+        fill:$nutritionMid; 
+    }
+}
+
+.weightCard {                       //set weight line graph colour
+    .nv-group { 
+        fill:$weightMid !important;
+        stroke:$weightMid !important; 
+    }
+}
+
+.alcoholCard {                      //set alcohol bar chart colour
+    rect { fill:$alcoholMid; }
+} 
+
+svg text {                          //set typography of axis labels
+    font: normal 11px 'OpenSans', sans-serif !important;
+    fill: $textMid;
+}
+
+.graph {                            //correctly pad the graphs within the card
+    padding:0 10px !important;
+}
+
+.domain {                           //remove bold vertical line at y axis
+    display:none;
+}
+
+rect[height="1"] {                  //fix for 0 height bars
+  display: none !important;
+}

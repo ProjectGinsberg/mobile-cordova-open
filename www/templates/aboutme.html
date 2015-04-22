@@ -1,0 +1,198 @@
+<ion-header-bar align-title="left" class="bar">
+
+    <div class="page-title">
+        <div class="button-bar">
+            <a ng-class="showRecent === false ? 'button-outline':''" ng-click="changeToRecent(true)" class="button button-light header-button-bar">Recent</a>
+            <a ng-class="showRecent === true ? 'button-outline':''" ng-click="changeToRecent(false)" class="button button-light header-button-bar">Months</a>
+        </div>
+    </div>
+</ion-header-bar>
+
+ <ion-header-bar align-title="left" class="bar bar-subheader">
+   <div ng-show="showRecent === true" class="buttons subheader-buttons">
+       <button ng-class="selected !== '7d' ? 'button-outline':''" class="subheader-button button button-small float-left button-positive quality-btn" ng-click="setDays(7);selected='7d'">7 Days</button>
+       <button ng-class="selected !== '1m' ? 'button-outline':''" class="subheader-button button button-small float-left button-positive quality-btn" ng-click="setMonths(1);selected='1m'">1 Month</button>
+       <button ng-class="selected !== '3m' ? 'button-outline':''" class="subheader-button button button-small float-left button-positive quality-btn" ng-click="setMonths(3);selected='3m'">3 Months</button>
+       <button ng-class="selected !== '6m' ? 'button-outline':''" class="subheader-button button button-small float-left button-positive quality-btn" ng-click="setMonths(6);selected='6m'">6 Months</button>
+       <button ng-class="selected !== '12m' ? 'button-outline':''" class="subheader-button button button-small float-left button-positive quality-btn" ng-click="setMonths(12);selected='12m'">1 Year</button>
+   </div>
+   <div ng-show="showRecent === false" class="buttons subheader-buttons">
+       <div class="pull-left">
+           <button class="button button-positive great icon-left ion-chevron-left button-clear" ng-click="prevMonth()"></button>
+       </div>
+
+        <div class="date-wrapper">
+            <display style="display:inherit" class="padding-horizontal date">
+                <span class="date-helper">{{dateHelperString}} </span>
+                <span class="date-helper" type="date" class="input date-picker" ng-bind="entryDate | date:'MMM yyyy'"></span>
+            </display>
+        </div>
+
+       <div class="buttons pull-right">
+           <button class="button button-positive icon-right ion-chevron-right great button-clear" ng-click="nextMonth()"></button>
+       </div>
+   </div>
+</ion-header-bar>
+
+<!-- <ion-header-bar align-title="left" class="bar bar-subheader">
+   <div class="pull-left">
+       <button class="button button-positive great icon-left ion-chevron-left button-clear" ng-click="prevDay()"></button>
+   </div>
+
+    <div class="date-wrapper">
+        <display style="display:inherit" class="padding-horizontal date">
+            <span class="date-helper">{{dateHelperString}} </span>
+            <input style="width:150px;" type="date" class="input date-picker" ng-model="entryDate">
+        </display>
+    </div>
+
+   <div class="buttons pull-right">
+       <button class="button button-positive icon-right ion-chevron-right great button-clear" ng-click="nextDay()"></button>
+   </div>
+</ion-header-bar> -->
+
+<ion-view on-swipe-left="nextMonth()" on-swipe-right="prevMonth()">
+   <ion-content class="padding background">
+
+      <div ng-show="showSectionWellbeing()" ng-controller="WellbeingAMCtrl" ng-init="wellbeingQuestionIndex=0"  class="list card wellbeingCard">
+        <div class="item item-divider header">
+            <!--<img class="header-icon" style="width:20px;height:20px" src="img/icon-wellbeing.svg" />-->
+             <div class='padding-left card-title'>{{wellbeingQuestion}}</div>
+         </div>
+         <div class="item item-body graph">
+            <nvd3 options="options" data="data"></nvd3>
+        </div>
+      </div>
+
+      <div ng-show="showSectionWellbeing()" ng-controller="WellbeingAMCtrl" ng-init="wellbeingQuestionIndex=1" class="list card wellbeingCard">
+        <div class="item item-divider header">
+             <!--<img class="header-icon" style="width:20px;height:20px" src="img/icon-wellbeing.svg" />-->
+             <div class='padding-left card-title'>{{wellbeingQuestion}}</div>
+         </div>
+         <div class="item item-body graph">
+            <nvd3 options="options" data="data"></nvd3>
+        </div>
+      </div>
+
+       <div ng-show="showSectionWellbeing()" ng-controller="WellbeingAMCtrl" ng-init="wellbeingQuestionIndex=2" class="list card wellbeingCard">
+        <div class="item item-divider header">
+             <div style="width:100%;"><div class='padding-left card-title'>{{wellbeingQuestion}}</div></div>
+         </div>
+         <div class="item item-body graph">
+            <nvd3 options="options" data="data"></nvd3>
+        </div>
+      </div>
+
+      <div ng-show="showSection('sleep')" ng-controller="SleepAMCtrl"  class="list card sleepCard">
+        <div class="item item-divider header">
+             <img class="header-icon" style="width:20px;height:20px" src="img/icon-sleep.svg" />
+             <span class='padding-left card-title'>Sleep</span>
+             <span class="card-subtitle">Hours asleep</span>
+         </div>
+         <div class="item item-body graph">
+            <nvd3 options="options" data="data"></nvd3>
+        </div>
+      </div>
+
+      <div ng-show="showSection('steps')" ng-controller="StepsAMCtrl" class="list card stepsCard">
+        <div class="item item-divider header">
+            <img class="header-icon" style="width:20px;height:20px" src="img/icon-steps.svg" />
+            <span class='padding-left card-title'>Steps</span>
+            <span class="card-subtitle">Steps taken</span>
+        </div>
+         <div class="item item-body graph">
+            <nvd3 options="options" data="data"></nvd3>
+        </div>
+      </div>
+
+      <div ng-show="showSection('exercise')" ng-controller="ExerciseAMCtrl"  class="list card exerciseCard">
+        <div class="item item-divider header">
+             <img class="header-icon" style="width:20px;height:20px" src="img/icon-exercise.svg" />
+             <span class='padding-left card-title'>Exercise</span>
+             <span class="card-subtitle">Activities</span>
+         </div>
+         <div class="item item-body graph">
+            <nvd3 options="options" data="data"></nvd3>
+        </div>
+      </div>
+
+      <div ng-show="showSection('nutrition')" ng-controller="NutritionAMCtrl"  class="list card nutritionCard">
+        <div class="item item-divider header">
+             <img class="header-icon" style="width:20px;height:20px" src="img/icon-nutrition.svg" />
+             <span class='padding-left card-title'>Nutrition</span>
+             <span class="card-subtitle">kCal</span>
+         </div>
+         <div class="item item-body graph">
+            <nvd3 options="options" data="data"></nvd3>
+        </div>
+      </div>
+
+      <div ng-show="showSection('weight')" ng-controller="WeightAMCtrl" class="list card weightCard">
+        <div class="item item-divider header">
+             <img class="header-icon" style="width:20px;height:20px" src="img/icon-weight.svg" />
+             <span class='padding-left card-title'>Weight</span>
+             <span class="card-subtitle">kg</span>
+         </div>
+         <div class="item item-body graph">
+            <nvd3 options="options" data="data"></nvd3>
+        </div>
+      </div>
+
+      <div ng-show="showSection('alcohol')" ng-controller="AlcoholAMCtrl" class="list card alcoholCard">
+        <div class="item item-divider header">
+             <img class="header-icon" style="width:20px;height:20px" src="img/icon-alcohol.svg" />
+             <span class='padding-left card-title'>Alcohol</span>
+             <span class="card-subtitle">Units of alcohol</span>
+         </div>
+         <div class="item item-body graph">
+            <nvd3 options="options" data="data"></nvd3>
+        </div>
+      </div>
+
+   </ion-content>
+</ion-view>
+
+
+
+<!--p>Graph page</p>
+<svg style='height:600px'/>
+
+        <script>
+
+        function myData() {
+            var series1=[{x:1, y:1},{x:2, y:2},{x:3, y:3},{x:4, y:4},{x:5, y:5}];//End
+
+            return [
+                    {
+                    key: "Series #1",
+                    values: series1,
+                    color: "#0000ff"
+                    }
+                    ];
+        }
+
+        nv.addGraph(function() {
+                    var chart = nv.models.lineChart();
+
+                    chart.xAxis
+                    .axisLabel("X-axis Label");
+
+                    chart.yAxis
+                    .axisLabel("Y-axis Label")
+                    .tickFormat(d3.format("d"))
+                    ;
+
+                    d3.select("svg")
+                    .datum(myData())
+                    .transition().duration(500).call(chart);
+
+                    nv.utils.windowResize(
+                                          function() {
+                                          chart.update();
+                                          }
+                                          );
+
+                    return chart;
+                    });
+
+        </script-->

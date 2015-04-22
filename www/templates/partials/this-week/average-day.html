@@ -1,0 +1,81 @@
+<div class="list card averageCard">
+  <div class="item item-divider header">
+       <span class='card-title'>Average Per Day</span>
+   </div>
+   <div class="item item-body graph row">
+       <div class="averagePerDayMeasure col">
+           <gb-sparkline ds="sleepDataSeries" id="sleepSpark" class="sleep event-chart"></gb-sparkline>
+           <div ng-show="isDefined('sleepMean')" class="sleep value-wrapper">
+               <span class="value">{{sleepMean | formatMetricToHuman:'sleep'}}</span>
+           </div>
+           <div ng-show="isDefined('sleepMean')" class="titleText">
+               <span>Sleep</span>
+           </div>
+           <span ng-hide="isDefined('sleepMean')" class='no-data'>
+               No sleep data for this week
+           </span>
+       </div>
+       <div class="averagePerDayMeasure col">
+       <gb-sparkline ds="stepsDataSeries" id="stepsSpark" class="steps event-chart"></gb-sparkline>
+       <div ng-show="isDefined('stepsMean')" class="steps value-wrapper">
+           <span class="value">{{stepsMean | formatMetricToHuman:'steps'}}</span>
+       </div>
+       <div ng-show="isDefined('stepsMean')" class="titleText">
+           <span>Steps</span>
+       </div>
+       <span ng-hide="isDefined('stepsMean')" class='no-data'>
+           No steps data for this week
+       </span>
+       </div>
+       <div class="averagePerDayMeasure col">
+       <gb-sparkline ds="nutritionDataSeries" id="nutritionSpark" class="nutrition event-chart"></gb-sparkline>
+       <div ng-show="isDefined('nutritionMean')" class="nutrition value-wrapper">
+           <span class="value">{{nutritionMean  | formatMetricToHuman:'nutrition'}}</span>
+       </div>
+       <div ng-show="isDefined('nutritionMean')" class="titleText">
+           <span>Calories</span>
+       </div>
+       <span ng-hide="isDefined('nutritionMean')" class="no-data">
+           No nutrition data for this week
+       </span>
+       </div>
+  </div>
+  <div class="item item-divider header">
+       <span class='card-title'>Total Week</span>
+   </div>
+	<div class="item item-body graph row">
+		<div class="averagePerDayMeasure col">
+			<gb-sparkline ds="exerciseDataSeries" id="exerciseSpark" class="exercise event-chart"></gb-sparkline>
+			<div ng-show="isDefined('exerciseTotal')" class="exercise value-wrapper">
+				<span class="value">{{exerciseTotal}}</span>
+                        </div>
+                         <div ng-show="isDefined('exerciseTotal')" class="titleText">
+                             <span class="titleText">Exercise Activities</span>
+                         </div>
+			<span ng-show="!isDefined('exerciseTotal')" class="no-data">
+				No exercise data for this week
+			</span>
+		</div>
+		<div class="averagePerDayMeasure col">
+			<gb-sparkline ds="alcoholDataSeries" id="alcoholSpark" class="alcohol event-chart"></gb-sparkline>
+			<div ng-show="isDefined('alcoholTotal')" class="alcohol value-wrapper">
+                            <span class="value">{{alcoholTotal}}</span></div>
+                        <div ng-show="isDefined('alcoholTotal')" class="titleText">
+				<span class="titleText">Units of Alcohol</span></div>
+			<span ng-show="!isDefined('alcoholTotal')" class="no-data">
+				No alcohol data for this week
+			</span>
+		</div>
+		<div class="averagePerDayMeasure col">
+			<gb-sparkline ds="socialDataSeries" id="socialSpark" class="social event-chart"></gb-sparkline>
+			<div ng-show="isDefined('socialTotal')" class="social value-wrapper">
+				<span class="value">{{socialTotal}}</span>
+                        </div>
+                        <div ng-show="isDefined('socialTotal')" class="titleText">
+                            <span class="titleText">Social Posts</span></div>
+			<span ng-show="!isDefined('socialTotal')" class='no-data'>
+				No social data for this week
+			</span>
+		</div>
+	</div>
+</div>

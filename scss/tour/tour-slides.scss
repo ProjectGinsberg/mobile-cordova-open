@@ -1,0 +1,109 @@
+//tour styles
+.tour-slide {
+    padding:0 10px;
+    text-align:center;
+    width:100%;
+    height:100%;
+    position: absolute;
+    top:10%;
+}
+
+#tour-signup-btn, #tour-signin-btn {
+    float:left;
+    text-align:center;
+}
+
+.tour-title {
+    padding:0 20px;
+}
+
+.tour-description {
+    padding:0 20px;
+}
+
+.tour-image {
+    display:table;
+    margin:0 auto;
+    margin-bottom:10px;
+}
+
+.tour-navigation {
+    margin-top:-14px;
+}
+
+
+//tour image media overrides
+.retina3-image { display:none; }
+.retina2-image { display:none; }
+.standard-image { display:table-cell; vertical-align:middle}
+
+@media only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2/1),
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min-device-pixel-ratio: 2) {
+
+    .retina3-image { display:none; }
+    .retina2-image { display:table-cell; vertical-align:middle; img {width:260px;}}
+    .standard-image { display:none; }
+
+}
+
+@media only screen and (min--moz-device-pixel-ratio: 3),
+only screen and (-o-min-device-pixel-ratio: 3/1),
+only screen and (-webkit-min-device-pixel-ratio: 3),
+only screen and (min-device-pixel-ratio: 3) {
+
+    .retina3-image { display:table-cell; vertical-align:middle; img {width:260px;}}
+    .retina2-image { display:none;}
+    .standard-image { display:none; }
+
+}
+
+//pagination styles
+.slider-pager {
+    bottom:15px;
+}
+
+.pagination-wrapper {
+    position: absolute;
+    bottom:30px;
+    width:100%;
+    left:0px;
+}
+.pagination {
+    display:table;
+    margin:0 auto;
+}
+
+.pagination-circle {
+    width:8px;
+    height:8px;
+    float:left;
+    margin:3px;
+}
+
+//sign up styles
+.signup-slide {
+    padding:0 8px 0 8px;
+    text-align:center;
+    width:100%;
+}
+
+.signup-header-wrapper {
+    background-color:white!important;
+}
+
+.signup-header {
+    height:47px;
+    margin-top:25px;
+    padding:0 5px;
+}
+.signin-form {
+    input {
+        border:1px solid $borderColour;
+        //padding:20px 10px !important;
+    }
+}
+.show-more {                                //show more button
+    margin-top:0;
+}

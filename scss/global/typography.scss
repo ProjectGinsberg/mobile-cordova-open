@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../fonts/opensans-light-webfont.ttf') format('truetype');
+    font-weight:300;
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../fonts/opensans-regular-webfont.ttf') format('truetype');
+    font-weight:500;
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../fonts/opensans-semibold-webfont.ttf') format('truetype');
+    font-weight:600;
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../fonts/opensans-bold-webfont.ttf') format('truetype');
+    font-weight:700;
+}
+
+body * {
+    font-family: 'OpenSans', sans-serif !important;
+    font-size:13px;
+    color:$textMid;
+    font-weight:500;
+}
+
+h1 {
+    font-size:36px !important;
+    color:$textDark !important;
+}
+
+h2 {
+    font-size:24px !important;
+    color:$textDark !important;
+}
+
+h3 {
+    font-size:18px !important;
+    color:$textMid !important;
+}
+
+h4 {
+    font-size:15px !important;
+    color:$textDark !important;
+}
+
+.input-label, input, select {
+    font-size:13px !important;
+    color:$textMid;
+    font-weight:500;
+}
+
+small, .tag, .button-small {
+    font-size:12px;
+    color: $textLight;
+    font-weight:600;
+}
+
+label {
+    font-size:14px;
+    font-weight:600;
+    color:$textDark;
+}
+
+
+
+

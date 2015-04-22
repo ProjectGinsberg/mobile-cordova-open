@@ -1,0 +1,84 @@
+/* Page Layout */
+
+.padding {                              //reduced padding outside cards
+    padding:8px;
+}
+
+.background {                           //set background colour
+    background-color:$lightGrey;
+}
+
+.padding-left {                         //set general padding left size
+    padding-left:7px;
+}
+
+.float-left {                           //set float left class
+    float:left;
+}
+.float-right {                          //set float right class
+    float:right;
+}
+
+.has-header {                           //position content based on new header height
+    top:50px !important;
+}
+
+.has-subheader {                        //position content based on new header height and sub header height
+    top:88px !important;
+}
+
+/* UI Elements */
+
+.item {                     
+    color:$textDark;
+    font-size:14px !important;
+    text-align:left;
+    padding:16px 16px 16px 60px;
+}
+
+.animate-repeat {
+    line-height:20px !important;
+}
+
+textarea {
+    border: solid 1px $borderColour;
+    border-radius: 6px;
+    resize:none;
+}
+
+.item-checkbox {
+    padding-top:12px !important;
+    padding-bottom:12px !important;
+}
+
+//Please wait alert for Windows Mobile
+#wait {
+    width:100%;
+    height:100%;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index:100;
+}
+
+#wait-background {
+    width:100%;
+    height:100%;
+    background-color:#000;
+    opacity:0.75;
+}
+
+#wait-text {
+    position: absolute;
+    top:50%;
+    width:100%;
+    
+    h2 {
+        color:#fff !important;
+        width:100%;
+        text-align:center;
+        z-index:101;
+        margin-top:-12px;
+    }
+}
+

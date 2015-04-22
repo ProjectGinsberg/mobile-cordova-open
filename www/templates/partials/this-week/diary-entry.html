@@ -1,0 +1,13 @@
+<div class="diaryEntry">
+	<div class="">
+		<span class="diaryDay">{{entry.entryDay | dateToDayString}}</span>
+		<span class="diaryDayNum">{{entry.entryDay | dateToDayNumber}}</span>
+	</div>
+	<div class="">
+		<span ng-hide="entry.entryContent === null" class="diaryEntryContent" ng-bind-html="entry.entryContentHtml">
+		</span>
+		<span ng-show="entry.entryContent === null" class="diaryEntryContent">
+			No entry for this day
+		</span>
+	</div>
+</div>

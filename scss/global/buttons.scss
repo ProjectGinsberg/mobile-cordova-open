@@ -1,0 +1,102 @@
+@import '../constants/constants';
+
+$btnGreatStart:     #82be99;
+$btnGreatEnd:       #71a685;
+$btnGoodStart:      #a6bf82;
+$btnGoodEnd:        #90a671;
+$btnOkStart:        #bebe82;
+$btnOkEnd:          #a6a671;
+$btnBadStart:       #bea582;
+$btnBadEnd:         #a69071;
+$btnTerribleStart:  #c58077;
+$btnTerribleEnd:    #b8776e;
+
+//generic button styles
+.button {                                       //set button corner radius
+    border-radius:6px;
+}
+
+.button-small {                                 //set small corner radius for small buttons
+    border-radius:3px;
+}
+
+.button-outline,
+.button-block {                                 //increase font weight of buttons
+    font-weight:600 !important;
+}
+
+.button-block {                                 //increase font size of block buttons     
+    font-size:16px !important;
+}
+
+//specific button styles
+
+.button .ion-plus:before {                      //Resize the '+' symbol at for the Add buttons
+    font-size:11px !important;
+}
+
+.bar .button.button-clear.icon-left:before,
+.bar .button.button-clear.icon-right:before {   //style left and right chevrons on date picker bar
+    font-size:20px !important;
+    color:$ginsbergMid;
+    top:0 !important;
+}
+
+.button-add-wrapper,
+.button-store-wrapper {                         //add and store button wrappers
+    min-height:36px;
+    font-size:13px !important;
+    font-weight:600;
+    border:0;
+    width:100%;
+    padding:4px 10px !important;
+}
+
+.button-add,
+.button-store {                                 //add and store button styling
+    font-size:13px !important;
+    font-weight:600;
+    width:100%;
+    margin-top:1px;
+    padding:4px 10px !important;
+}
+
+.button-bar>.button:first-child {               //left toggle button corner radius for graph page header
+    border-radius: 6px 0 0 6px;
+}
+
+.button-bar>.button:last-child {                //right toggle button corner radius for graph page header
+    border-radius: 0 6px 6px 0;
+}
+
+.button.button-light.button-outline {           //white outline for toggle button on graph page header
+    color:white;
+    border-color:white;
+}
+
+.subheader-button {                             //styling date range buttons on graph page subheader
+    margin:2px;
+    font-size:12px !important;
+    padding:0 4px !important;
+}
+
+.header-button-bar {                            //
+    line-height:29px !important;
+}
+.button-bar {
+    height:32px;
+    margin:0 auto;
+}
+
+.button.button-positive.button-outline {
+    border-color:rgba(130, 190, 153, 0.5);
+}
+
+.bar .button.button-clear {
+    font-weight:400;
+}
+
+.button-logout {
+    margin:5px 0;
+}
+

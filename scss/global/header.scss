@@ -1,0 +1,103 @@
+/* Header */
+.bar-header {                                   //header styles (height, gradient, padding)
+    height:54px;
+    background-image: linear-gradient($ginsbergStart, $ginsbergMid);
+    background-size: auto;
+    padding:10px 8px 0 8px;
+}
+
+.button-header {                                //set button text on header to white
+    color:white !important;
+    font-size:18px !important;
+}
+
+.page-title {                                   //page title styles
+    margin:0 auto;
+    position:absolute;
+    bottom:5px;
+    width:100%;
+    left:0px;
+    h3 {
+        color:white !important;
+        font-size:21px !important;
+        text-align:center;
+        margin-bottom:0;
+    }
+}
+
+.bar .pull-left {                               //left header button position
+    left:5px;
+    bottom:0px;
+    position:absolute;
+}
+
+.bar .pull-right {                              //right header button position
+    right:5px;
+    bottom:0px;
+    position:absolute;
+}
+
+.bar-subheader .pull-left {                     //fix for left chevron position on date picker
+    bottom:-2px !important;
+}
+
+.bar-subheader .buttons.pull-right{             //fix for right chevron position on date picker
+    top:0 !important;
+}
+
+.header-button-bar {                            //set size of toggle button text for graph page
+    font-size:15px !important;
+}
+
+/* Sub header */
+.bar-subheader {                                //sub header styling
+    height:40px !important;
+    padding:0 8px;
+    top:54px;
+    background:white;
+    border-bottom: 1px solid $borderColour;
+}
+
+.date-subheader {                               //resize the date picker sub header
+    height:34px !important;
+}
+
+.date-wrapper {                                 //wrapper to center align date
+    margin:0 auto;
+    display:table;
+    text-align:center;
+}
+
+.date {                                         //center align date
+    margin:0 auto;
+}
+
+.date-helper {                                  //date element styling
+    padding-top:7px;
+    padding-left:3px;
+    padding-right:3px;
+    float:left;
+    font-weight:600;
+    font-size:14px;
+}
+
+/*.date-picker {                                //attempt to fix date picker styling (removed as it was being overridden by native date picker on device)
+    font-family: 'Open Sans', sans-serif;
+    font-size:15px !important;
+    color:$ginsbergMid !important;
+    font-weight:600 !important;
+    height:30px !important;
+    padding-top:4px !important;
+}*/
+
+.subheader-buttons {                            //center align date range buttons on graph page sub header
+    margin:0 auto;
+    display:table !important;
+}
+
+.date-week {                                    //week picker styling
+    font-size:14px !important;
+    font-weight:600 !important;
+    height:30px !important;
+    padding-top:7px !important;
+}

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+    <!--meta name="msapplication-tap-highlight" content="no" /-->
+
+    <title></title>
+    <link href="css/ionic.app.min.css" rel="stylesheet">
+    <!--<link href="lib/ionic/css/ionic.css" rel="stylesheet">-->
+    <link href="css/home.min.css" rel="stylesheet">
+    <link href="css/signup.min.css" rel="stylesheet">
+    <link href="css/nv.d3.css" rel="stylesheet">
+
+    <!--<link rel="stylesheet" href="lib/Microsoft.WinJS.4.0/css/ui-light.css" />-->
+    <link rel="stylesheet" href="css/ui-light-edit.css" />
+    <script src="lib/Microsoft.WinJS.4.0/js/WinJS.min.js"></script>
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/general/winstore-jscompat.js"></script>
+    <script src="lib/ionic/js/ionic.bundle.min.js"></script>
+    <script src="lib/ionic/js/angular/angular-resource.min.js"></script>
+    <script src="lib/ionic/js/angular/angular-animate.min.js"></script>
+    <script src="lib/ngcordova/ng-cordova.min.js"></script>
+    <!-- lawnchair -->
+    <script src="lib/lawnchair/js/lawnchair.js"></script>
+    <script src="lib/lawnchair/js/lawnchair-dom-adapter.js"></script>
+    <script src="lib/lawnchair/js/lawnchair-query-plugin.js"></script>
+    <!-- general libs -->
+    <script src="lib/general/SimpleDateFormat.js"></script>
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+    <!-- date format and manipulation library -->
+    <script src="lib/moment/js/moment.min.js"></script>
+    <!-- Adding nvd3 charts -->
+    <script src="lib/charts/js/d3.min.js"></script>
+    <script src="lib/charts/js/nv.d3.min.js"></script>
+    <script src="lib/charts/js/angular-nvd3.min.js"></script>
+    <!-- Adding localytics JS -->
+    <script src="lib/localytics/js/localytics.js"></script>
+    <!-- Adding spinner -->
+    <!--script src="lib/spinner/js/spin.min.js"></script>
+    <script src="lib/spinner/js/angular-spinner.min.js"></script-->
+    <!-- Adding Localytics Native -->
+    <!--script src="lib/localytics/js/localyticsPhonegap.js"></script-->
+    <script src="js/modules/services/_service-module.js"></script>
+    <script src="js/modules/services/platform-service.js"></script>
+    <script src="js/modules/services/pedometer-service.js"></script>
+    <script src="js/modules/services/analytics-service.js"></script>
+    <script src="js/modules/services/localnotification-service.js"></script>
+    <script src="js/modules/services/objective-service.js"></script>
+    <script src="js/modules/services/login-service.js"></script>
+    <script src="js/modules/services/sync-service.js"></script>
+    <script src="js/modules/services/tag-service.js"></script>
+    <script src="js/modules/services/wellbeing-service.js"></script>
+    <script src="js/modules/services/journal-service.js"></script>
+    <script src="js/modules/services/profile-service.js"></script>
+    <script src="js/modules/services/user-service.js"></script>
+    <script src="js/modules/services/spinner-service.js"></script>
+    <script src="js/modules/services/applewatch-service.js"></script>
+    <script src="js/modules/resources/_resources-module.js"></script>
+    <script src="js/modules/resources/changes-resource.js"></script>
+    <script src="js/modules/resources/journal-resource.js"></script>
+    <script src="js/modules/resources/objective-resource.js"></script>
+    <!--script src="js/modules/resources/stepcount-resource.js"></script>
+    <script src="js/modules/resources/alcohol-resource.js"></script>
+    <script src="js/modules/resources/weight-resource.js"></script>
+    <script src="js/modules/resources/sleep-resource.js"></script>
+    <script src="js/modules/resources/nutrition-resource.js"></script>
+    <script src="js/modules/resources/exercise-resource.js"></script-->
+    <script src="js/modules/resources/profile-resource.js"></script>
+    <script src="js/modules/resources/login-resource.js"></script>
+    <script src="js/modules/resources/data-series-resource.js"></script>
+    <script src="js/modules/resources/stats-resource.js"></script>
+    <script src="js/modules/resources/wellbeing-resource.js"></script>
+
+    <script src="js/modules/login/login-controller.js"></script>
+    <script src="js/modules/home/_home-module.js"></script>
+    <script src="js/modules/home/home-controller.js"></script>
+    <script src="js/modules/home/journal-controller.js"></script>
+    <script src="js/modules/home/sleep-controller.js"></script>
+    <script src="js/modules/home/wellbeing-controller.js"></script>
+    <script src="js/modules/home/exercise-controller.js"></script>
+    <script src="js/modules/home/nutrition-controller.js"></script>
+    <script src="js/modules/home/alcohol-controller.js"></script>
+    <script src="js/modules/home/weight-controller.js"></script>
+    <script src="js/modules/home/steps-controller.js"></script>
+
+    <script src="js/modules/aboutme/_aboutme-module.js"></script>
+    <script src="js/modules/aboutme/aboutme-controller.js"></script>
+    <script src="js/modules/aboutme/base-am-controller.js"></script>
+    <script src="js/modules/aboutme/sleep-am-controller.js"></script>
+    <script src="js/modules/aboutme/wellbeing-am-controller.js"></script>
+    <script src="js/modules/aboutme/exercise-am-controller.js"></script>
+    <script src="js/modules/aboutme/nutrition-am-controller.js"></script>
+    <script src="js/modules/aboutme/alcohol-am-controller.js"></script>
+    <script src="js/modules/aboutme/weight-am-controller.js"></script>
+    <script src="js/modules/aboutme/steps-am-controller.js"></script>
+
+    <script src="js/modules/settings/_settings-module.js"></script>
+    <script src="js/modules/settings/settings-controller.js"></script>
+    <script src="js/modules/settings/emotions-controller.js"></script>
+
+
+    <script src="js/modules/signup/_signup-module.js"></script>
+    <script src="js/modules/signup/welcome-controller.js"></script>
+    <script src="js/modules/signup/what-controller.js"></script>
+    <script src="js/modules/signup/signup-controller.js"></script>
+    <script src="js/modules/signup/signin-controller.js"></script>
+    <script src="js/modules/signup/track-emotion-controller.js"></script>
+
+    <script src="js/modules/tags/taglist-directive.js"></script>
+    <script src="js/modules/list/list-directive.js"></script>
+
+    <script src="js/modules/filters/_filters-module.js"></script>
+    <script src="js/modules/filters/metric-filter.js"></script>
+    <script src="js/modules/filters/timeformat-filter.js"></script>
+    <script src="js/modules/filters/sleepquality-filter.js"></script>
+
+    <script src="js/modules/db/_db-module.js"></script>
+    <script src="js/modules/db/db-service.js"></script>
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+
+    <script src="js/controllers.js"></script>
+
+    <script src="js/modules/auth/_auth-module.js"></script>
+    <script src="js/modules/auth/login-dialog-controller.js"></script>
+    <script src="js/modules/auth/login-dialog-directive.js"></script>
+    <script src="js/modules/auth/auth-events-constant.js"></script>
+    <script src="js/modules/auth/auth-interceptor.js"></script>
+    <script src="js/modules/auth/http-buffer.js"></script>
+
+    <script src="js/modules/auth/user-service.js"></script>
+
+    <!-- this week module -->
+    <script src="js/modules/this-week/thisweek-controller.js"></script>
+    <script src="js/modules/this-week/taghighlight-service.js"></script>
+    <script src="js/modules/this-week/averageday/averageday-controller.js"></script>
+    <script src="js/modules/this-week/averageday/averageday-directive.js"></script>
+    <script src="js/modules/this-week/diary/diary-controller.js"></script>
+    <script src="js/modules/this-week/diary/diaryentry-directive.js"></script>
+    <script src="js/modules/this-week/heading/heading-directive.js"></script>
+    <script src="js/modules/this-week/periodselector/periodselector-controller.js"></script>
+    <script src="js/modules/this-week/periodselector/periodselector-service.js"></script>
+    <script src="js/modules/this-week/tags/tags-controller.js"></script>
+    <script src="js/modules/this-week/tags/tags-directive.js"></script>
+    <script src="js/modules/this-week/totalweek/totalweek-directive.js"></script>
+    <script src="js/modules/this-week/wellbeingchart/wellbeing-service.js"></script>
+    <script src="js/modules/this-week/wellbeingchart/wellbeingchart-directive.js"></script>
+    <script src="js/modules/this-week/wellbeingchart/wellbeingscores-controller.js"></script>
+
+    <script src="js/modules/sectionsconfig/sectionsconfig-controller.js"></script>
+    <script src="js/modules/sectionsconfig/sectionsconfig-directive.js"></script>
+
+    <script src="js/modules/graphs/sparkline-directive.js"></script>
+   </head>
+<body ng-app="gb" class="platform-windows platform-cordova platform-webview">
+
+    <!--Please wait alert for Windows Mobile-->
+    <div id="wait" style="visibility: hidden">
+        <div id="wait-background"></div>
+        <div id="wait-text">
+            <h2>Please wait</h2>
+        </div>
+    </div>
+
+
+    <!--
+      The views will be rendered in the <ion-nav-view> directive below
+      Templates are in the /templates folder (but you could also
+      have templates inline in this html file if you'd like).
+    -->
+
+
+
+    <ion-nav-view></ion-nav-view>
+
+    <script id="disable.html" type="text/ng-template">
+        <ion-modal-view>
+            <ion-header-bar>
+                <h1 class="title">Disable Account</h1>
+            </ion-header-bar>
+            <ion-content class="has-header has-subheader">
+                <div class="padding">
+                    <p>
+                        You can turn off your Gisberg account if you need to take a break.
+                        We wont destroy your data and you can come back whenever you feel like it.
+                    </p>
+                    <p>
+                        To disable your account, please enter your email and password and press
+                        disable
+                    </p>
+                    <form autofill-fix>
+                        <fieldset>
+                            <legend style="display: none;">Credentials</legend>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" class="form-control" name="email" placeholder="Your email address" ng-model="disableEmail" />
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" name="password" placeholder="Your password" ng-model="disablePassword" />
+                            </div>
+                        </fieldset>
+                    </form>
+                    <button class="button-block button-balanced button" ng-click="attemptDisable()">Disable Account</button>
+                </div>
+            </ion-content>
+        </ion-modal-view>
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+.line {
+    fill:none;
+}
+.sleep {
+    path {
+            stroke:$sleepMid !important;
+            stroke-width:3px !important;
+            stroke-linejoin: round !important;
+            stroke-linecap: round;
+    }
+            display:inline-block;
+            vertical-align:middle;
+            color:$sleepMid;
+}
+.steps {
+    path {
+        stroke:$stepsMid !important;
+        stroke-width:3px !important;
+        stroke-linejoin: round !important;
+        stroke-linecap: round;
+    }
+    display:inline-block;
+    vertical-align:middle;
+    color:$stepsMid;
+}
+
+.nutrition {
+    path {
+        stroke:$nutritionMid !important;
+        stroke-width:3px !important;
+        stroke-linejoin: round !important;
+        stroke-linecap: round;
+    }
+    display:inline-block;
+    vertical-align:middle;
+    color:$nutritionMid;
+}
+
+.exercise {
+    path {
+        stroke:$exerciseMid !important;
+        stroke-width:3px !important;
+        stroke-linecap: round;
+    }
+    display:inline-block;
+    vertical-align:middle;
+    color:$exerciseMid;
+}
+.alcohol {
+    path {
+        stroke:$alcoholMid !important;
+        stroke-width:3px !important;
+        stroke-linecap: round;
+    }
+    display:inline-block;
+    vertical-align:middle;
+    color:$alcoholMid;
+}
+.social {
+    path {
+        stroke:$socialMid !important;
+        stroke-width:3px !important;
+        stroke-linecap: round;
+    }
+    display:inline-block;
+    vertical-align:middle;
+    color:$socialMid;
+}

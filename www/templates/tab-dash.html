@@ -1,0 +1,352 @@
+
+<ion-header-bar align-title="center" class="bar bar-header">
+   <div class="pull-left">
+       <button class="button-header button button-light great button-clear" ng-click="toggleDelete = !toggleDelete">{{editText()}}</button>
+   </div>
+    <div class="page-title"><h3>Ginsberg</h3></div>
+
+<div class="pull-right">
+       <button class="button-header button button-light great button-clear" ng-click="sync()">Save</button>
+</div>
+</ion-header-bar>
+
+<ion-header-bar align-title="left" class="bar bar-subheader date-subheader">
+   <div class="pull-left">
+       <button class="button button-positive great icon-left ion-chevron-left button-clear" ng-click="prevDay()"></button>
+   </div>
+
+    <div class="date-wrapper">
+        <display style="display:inherit" class="padding-horizontal date">
+            <span class="date-helper">{{dateHelperString}} </span>
+            <span class="date-helper" type="date" class="input date-picker" ng-bind="entryDate | date:'EEE dd MMM yyyy'"></span>
+        </display>
+    </div>
+
+   <div class="buttons pull-right">
+       <button class="button button-positive icon-right ion-chevron-right great button-clear" ng-click="nextDay()"></button>
+   </div>
+</ion-header-bar>
+
+<ion-view on-swipe-left="nextDay()" on-swipe-right="prevDay()">
+   <ion-content ng-show="contentLoaded"
+   ng-animate
+   class="padding background animate-show"
+   has-header="true"
+   has-tabs="true"
+   has-subheader="true"
+   padding="true">
+
+      <div ng-show="showSection('wellbeing')" ng-controller="WellbeingCtrl">
+         <div ng-repeat="question in wellbeingQuestions" class="wellbeingContainer">
+            <h4 class="questionHeader">{{question.question}}</h4>
+            <ul class="wellbeingCard" >
+               <li  ng-class="answerScoreClass(question.id,answer.score)"
+                  ng-repeat="answer in answerScores" class="wellbeingAnswer {{answer.class}}" ng-click="questionAnswered(question.id,answer.score)">{{answer.text}}</li>
+            </ul>
+         </div>
+      </div>
+      <div ng-show="showSection('journal')" ng-controller="JournalCtrl" class="list card diaryCard">
+         <div class="item item-divider header"><img class="header-icon" style="width:20px;height:20px" src="img/icon-journal.svg" /></i><div class='padding-left card-title'>Diary</div></div>
+         <div class="item item-body journal-textarea">
+             <textarea ng-model="journalEntry" ng-blur="looseFocus()"></textarea>
+         </div>
+         <tag-list></tag-list>
+      </div>
+      <div ng-show="showSection('sleep')" ng-controller="SleepCtrl" class="list card sleepCard">
+         <div class="item item-divider header">
+             <img class="header-icon" style="width:20px;height:20px" src="img/icon-sleep.svg" />
+             <span class='padding-left card-title'>Sleep last night</span>
+         </div>
+         <div class="item item-body">
+             <ion-list show-delete="toggleDelete">
+                <ion-item ng-repeat="record in sleepRecords" ng-class="toggleDelete? 'item-remove-animate item-input':'item-input'"  ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
+                   <ion-delete-button class="ion-minus-circled"
+                       ng-click="deleteRecord($index)">
+                   </ion-delete-button>
+                   <label class="animate-repeat" class="item">
+                   <span class="input-label">Sleep</span>
+                   <h4 class="input-review float-right">{{record.total_sleep | toHoursAndMinutes:"long"}}</h4>
+                   <button
+                   ng-class="getSleepQualityClass(record.quality)"
+                   ng-show="record.quality > 0"
+                    class="button button-small padding float-right quality-tag">
+                        {{record.quality | sleepQuality}}
+                   </button>
+                   </label>
+                </ion-item>
+             </ion-list>
+             <div class="newItem" ng-show="newRecord === true">
+             <div class="item item-input">
+                <img class="item-icon" style="width:20px;height:20px" src="img/icon-sleeptime.svg" /><span class="input-label">Sleep Time</span>
+                <div class="input-field" id="SleepTime" data-tap-disabled="true"><div class="time-picker" id="NativeSleepTime" ng-click="showSleepTimePicker()">{{sleepTime | date:'HH:mm'}}</div></div>
+             </div>
+             <div class="item item-input">
+                 <img class="item-icon" style="width:20px;height:20px" src="img/icon-waketime.svg" /><span class="input-label">Wake Time</span>
+                 <div class="input-field" id="WakeTime" data-tap-disabled="true"><div class="time-picker" id="NativeWakeTime" ng-click="showWakeTimePicker()">{{wakeTime | date:'HH:mm'}}</div></div>
+             </div>
+
+             <div class="item item-input" style="text-align: center;">
+                <span class="center-text item-label">My quality of sleep was</span>
+                <div class="buttons">
+                   <div class="quality-btn col col-20 float-left">
+                       <button ng-click="sleepQualityClicked('Terrible')" ng-class="sleepQuality !== 'Terrible' ? 'button-outline':''" class="button button-small  button-terrible button-block">Terrible
+                       </button>
+                   </div>
+                   <div class="quality-btn col col-20 float-left">
+                     <button ng-click="sleepQualityClicked('Bad')" ng-class="sleepQuality !== 'Bad' ? 'button-outline':''" class="button button-small button-bad button-block">Bad
+                     </button>
+                   </div>
+                   <div class="quality-btn col col-20 float-left">
+                     <button ng-click="sleepQualityClicked('OK')" ng-class="sleepQuality !== 'OK' ? 'button-outline':''" class="button button-small button-ok button-block">Ok
+                     </button>
+                   </div>
+                   <div class="quality-btn col col-20 float-left">
+                     <button ng-click="sleepQualityClicked('Good')" ng-class="sleepQuality !== 'Good' ? 'button-outline':''" class="button button-small button-good button-block">Good
+                     </button>
+                   </div>
+                   <div class="quality-btn col col-20 float-left">
+                     <button ng-click="sleepQualityClicked('Great')" ng-class="sleepQuality !== 'Great' ? 'button-outline':''" class="button button-small button-great button-block">Great
+                     </button>
+                   </div>
+                </div>
+             </div>
+             </div>
+            <!---->
+
+            <div class="item-add" ng-class="{'item item-input item-add' : sleepRecords.length > 0}">
+                <button ng-click="tappedAddStoreRecord()" ng-class="newRecord? 'button-store-wrapper pull-right button-clear':'button-add-wrapper pull-right button-clear'">
+                    <div ng-class="newRecord? 'button button-positive button-store button-small':'button-add button button-positive button-small button-clear'" class="button-add">{{addStoreText()}}</div>
+                </button>
+            </div>
+
+         </div>
+      </div>
+
+            <div ng-show="showSection('exercise')" ng-controller="ExerciseCtrl" class="list card exerciseCard">
+               <div class="item item-divider header">
+                   <img class="header-icon" style="width:20px;height:20px" src="img/icon-exercise.svg" />
+                   <span class='padding-left card-title'>Exercise</span>
+               </div>
+               <div class="item item-body">
+
+                   <ion-list show-delete="toggleDelete">
+                      <ion-item ng-repeat="record in exerciseRecords" ng-class="toggleDelete? 'item-remove-animate':''" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
+                       <ion-delete-button class="ion-minus-circled"
+                           ng-click="deleteRecord($index)">
+                       </ion-delete-button>
+                          <div class="item-input exercise">
+                              <div class="input-label">Activity</div>
+                              <h4 class="float-right input-review">{{record.activity_type}}</h4>
+                          </div>
+                       <!--<label class="animate-repeat item item-input">
+                           <div class="input-label">Calories</div>
+                           <div class="input-field"><input type="tel" placeholder="Enter calories" ng-model="record.calories"></div>
+                       </label>-->
+                      </ion-item>
+                   </ion-list>
+               </div>
+               <div class="item item-body">
+                  <div ng-show="newRecord !== null" data-tap-disabled="true" class="newExercise item item-input item-select exercise">
+                      <div class="input-label">Activity</div>
+                      <select class="animate-repeat" ng-model="newRecord.activity_type">
+                         <option selected>Walking</option>
+                         <option>Running</option>
+                         <option>Other Cardio</option>
+                         <option>Weight Training</option>
+                         <option>Sport</option>
+                         <option>Yoga</option>
+                         <option>Meditation</option>
+                         <option>Cycling</option>
+                         <option>Other</option>
+                      </select>
+                  </div>
+
+                <div class="item-add" ng-class="{'item item-input item-add' : exerciseRecords.length > 0}">
+                    <button ng-click="tappedAddStoreRecord()" ng-class="newRecord? 'button-store-wrapper pull-right button-clear':'button-add-wrapper pull-right button-clear'">
+                        <div ng-class="newRecord? 'button button-positive button-store button-small':'button-add button button-positive button-small button-clear'" class="button-add">{{addStoreText()}}</div>
+                    </button>
+                </div>
+
+              </div>
+            </div>
+
+            <div ng-show="showSection('alcohol')" ng-controller="AlcoholCtrl" class="list card alcoholCard">
+               <div class="item item-divider header">
+                   <img class="header-icon" style="width:20px;height:20px" src="img/icon-alcohol.svg" />
+                   <span class='padding-left card-title'>Alcohol</span>
+               </div>
+               <div class="item item-body">
+                  <ion-list show-delete="toggleDelete">
+
+                      <ion-item ng-repeat="record in alcoholRecords" ng-class="toggleDelete? 'item-remove-animate':''"  ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
+                          <ion-delete-button class="ion-minus-circled"
+                              ng-click="deleteRecord($index)">
+                          </ion-delete-button>
+
+                          <label class="animate-repeat item item-input">
+                             <span class="input-label">Units of Alcohol</span>
+                             <h4 class="input-review float-right">{{record.units}}</h4>
+                          </label>
+
+                      </ion-item>
+
+                  </ion-list>
+               </div>
+               <div class="item item-body">
+
+                  <label ng-show="newRecord !== null" class="animate-repeat item item-input">
+                      <span class="input-label">Units of Alcohol</span>
+                      <span class="pull-left">
+                          <div class="range">
+                             <span>0</span>
+                             <input type="range" id="alcoholRange" min="0" max="35" name="units" ng-model="newRecord.units">
+                             <span>35</span>
+                          </div>
+                      </span>
+                  </label>
+                  <div ng-show="newRecord !== null" class="item item-input">
+                       <div style="text-align: center;padding:10px 0;">
+                          <span class="large-number">{{newRecord.units}} units</span>
+                          <span>is about the same as</span>
+                          </div>
+                     <div style="text-align:center;" class="row">
+                         <div class="col col-33">
+                             <img style="width:32px;height:48px" src="img/Beer.png" /><br />
+                             <label>{{getPintsBeer(newRecord.units)}} pints</label><br /><small>of beer</small>
+                         </div>
+                         <div class="col col-33">
+                             <img style="width:29px;height:49px" src="img/Wine.png" /><br />
+                             <label>{{getGlassesWine(newRecord.units)}} glasses</label><br /><small>of wine</small>
+                         </div>
+                         <div class="col col-33">
+                             <img style="width:34px;height:49px" src="img/Spirits.png" /><br />
+                             <label>{{newRecord.units}} shots</label><br /><small>of spirits</small>
+                         </div>
+                     </div>
+                  </div>
+
+                <div class="item-add" ng-class="{'item item-input item-add' : alcoholRecords.length > 0}">
+                    <button ng-click="tappedAddStoreRecord()" ng-class="newRecord? 'button-store-wrapper pull-right button-clear':'button-add-wrapper pull-right button-clear'">
+                        <div ng-class="newRecord? 'button button-positive button-store button-small':'button-add button button-positive button-small button-clear'" class="button-add">{{addStoreText()}}</div>
+                    </button>
+                </div>
+
+               </div>
+            </div>
+
+
+      <div ng-show="showSection('steps')" ng-controller="StepsCtrl" class="list card stepsCard">
+         <div class="item item-divider header">
+             <img class="header-icon" style="width:20px;height:20px" src="img/icon-steps.svg" />
+             <span class='padding-left card-title'>Steps</span>
+         </div>
+         <div class="item item-body">
+            <ion-list show-delete="toggleDelete">
+               <ion-item ng-repeat="record in stepsRecords" ng-class="toggleDelete? 'item-remove-animate':''"  ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
+                <ion-delete-button class="ion-minus-circled"
+                    ng-click="deleteRecord($index)">
+                </ion-delete-button>
+                <label class="animate-repeat item item-input">
+                    <div class="input-label">Steps</div>
+                    <h4 class="input-review float-right">{{record.step_count}}</h4>
+                </label>
+               </ion-item>
+            </ion-list>
+         </div>
+         <div class="item item-body">
+
+            <div ng-show="newRecord !== null" class="item item-input ">
+                 <div class="input-label">Steps</div>
+                 <div class="input-field"><input type="text" pattern="\d*" placeholder="" ng-model="newRecord.step_count"></div>
+
+            </div>
+
+            <div class="item-add" ng-class="{'item item-input item-add' : stepRecords.length > 0}">
+                <button ng-click="tappedAddStoreRecord()" ng-class="newRecord? 'button-store-wrapper pull-right button-clear':'button-add-wrapper pull-right button-clear'">
+                    <div ng-class="newRecord? 'button button-positive button-store button-small':'button-add button button-positive button-small button-clear'" class="button-add">{{addStoreText()}}</div>
+                </button>
+            </div>
+        </div>
+      </div>
+      <div ng-show="showSection('nutrition')" ng-controller="NutritionCtrl" class="list card nutritionCard">
+         <div class="item item-divider header">
+             <img class="header-icon" style="width:20px;height:20px" src="img/icon-nutrition.svg" />
+             <span class='padding-left card-title'>Nutrition</span>
+         </div>
+
+         <div class="item item-body">
+            <ion-list show-delete="toggleDelete">
+               <ion-item ng-repeat="record in nutritionRecords" ng-class="toggleDelete? 'item-remove-animate':''"  ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
+                <ion-delete-button class="ion-minus-circled"
+                    ng-click="deleteRecord($index)">
+                </ion-delete-button>
+                <label class="animate-repeat item item-input">
+                    <div class="input-label">Meal {{$index+1}}</div>
+                    <h4 class="input-review float-right">{{record.step_count}}</h4>
+                    <div class="item-metric">kcal</div>
+                    <h4 class="input-review float-right">{{record.calories}}</h4>
+                </label>
+               </ion-item>
+            </ion-list>
+         </div>
+
+         <div class="item item-body">
+
+             <div ng-show="newRecord !== null" class="item item-input ">
+                <div class="input-label">Meal</div>
+                <div class="item-metric">kcal</div>
+                <div class="input-field"><input type="text" pattern="\d*" placeholder="" ng-model="newRecord.calories"></div>
+             </div>
+
+            <div class="item-add" ng-class="{'item item-input item-add' : nutritionRecords.length > 0}">
+                <button ng-click="tappedAddStoreRecord()" ng-class="newRecord? 'button-store-wrapper pull-right button-clear':'button-add-wrapper pull-right button-clear'">
+                    <div ng-class="newRecord? 'button button-positive button-store button-small':'button-add button button-positive button-small button-clear'" class="button-add">{{addStoreText()}}</div>
+                </button>
+            </div>
+
+        </div>
+
+      </div>
+
+      <div ng-show="showSection('weight')" ng-controller="WeightCtrl" class="list card weightCard">
+         <div class="item item-divider header">
+             <img class="header-icon" style="width:20px;height:20px" src="img/icon-weight.svg" />
+             <span class='padding-left card-title'>Weight</span>
+         </div>
+
+         <div class="item item-body">
+            <ion-list show-delete="toggleDelete">
+               <ion-item ng-repeat="record in weightRecords" ng-class="toggleDelete? 'item-remove-animate':''"  ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
+                <ion-delete-button class="ion-minus-circled"
+                    ng-click="deleteRecord($index)">
+                </ion-delete-button>
+                <label class="animate-repeat item item-input">
+                    <span class="input-label" ng-model="weightEntry">Weight</span>
+                    <div class="item-metric">kg</div>
+                    <h4 class="input-review float-right">{{record.weight}}</h4>
+                </label>
+               </ion-item>
+            </ion-list>
+         </div>
+
+         <div class="item item-body">
+
+            <div ng-show="newRecord !== null" class="item item-input ">
+                <span class="input-label" ng-model="weightEntry">Weight</span>
+                <div class="item-metric">kg</div>
+                <div class="input-field"><input type="number" step="0.01" placeholder="" ng-model="newRecord.weight"></div>
+            </div>
+
+            <div class="item-add" ng-class="{'item item-input item-add' : weightRecords.length > 0}">
+                <button ng-click="tappedAddStoreRecord()" ng-class="newRecord? 'button-store-wrapper pull-right button-clear':'button-add-wrapper pull-right button-clear'">
+                    <div ng-class="newRecord? 'button button-positive button-store button-small':'button-add button button-positive button-small button-clear'" class="button-add">{{addStoreText()}}</div>
+                </button>
+            </div>
+
+         </div>
+
+      </div>
+
+      <!--button class="button-block button-balanced button button-save" ng-click="save()">Save</button-->
+   </ion-content>
+</ion-view>
