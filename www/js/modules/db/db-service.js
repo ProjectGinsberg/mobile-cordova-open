@@ -82,16 +82,6 @@ angular.module('gb.db')
                 console.log("db-service: Clearing table " + tables[i]);
                 dbs[tables[i]].nuke();
 
-                /*
-                var table = Lawnchair({name: tables[i] }, function(e){
-                    console.log(tables[i] + ' Storage open');
-                });
-
-                dbs[tables[i]] = table;
-
-                table.records.length;
-                */
-
                 return;
             }
         }

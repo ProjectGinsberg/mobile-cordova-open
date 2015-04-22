@@ -231,7 +231,7 @@ angular.module('gb.services')
     ];
    userService.getWellbeingQuestions = function() {
        return sortWellbeingQuestions(wellbeing);
-   }
+   };
 
     return userService;
 }]);

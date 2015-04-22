@@ -5,9 +5,6 @@ angular.module('gb.signup')
 
     $scope.login = function() {
         
-        //Quick show of squash bug
-        //$state.go('welcome');return;
-        
         console.log($scope.email);
         SpinnerService.show(true);
         AnalyticsService.event('Signup Signin Choice', {'user':'signin'});
@@ -36,7 +33,6 @@ angular.module('gb.signup')
                             $scope.loginMessage = "Sorry, there seems to a problem with our server.  Please try again later.";
                         });
 
-        //SyncService.start();
     };
 
      // register for login / startup event

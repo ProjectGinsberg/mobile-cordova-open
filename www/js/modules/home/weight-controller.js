@@ -83,9 +83,6 @@ angular.module('gb.home')
         //Check if stored beyond just front end
         if(record.state)
         {
-            //Store up for sending to database on Save
-            //$scope.weightDeletes.push(record);
-            
             AnalyticsService.event('Tapping Delete', {'Delete Data':'Weight'});
 
             //Set delete in database

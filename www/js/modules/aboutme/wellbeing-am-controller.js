@@ -53,7 +53,7 @@ $controller('BaseAMCtrl', {$scope:$scope,$rootScope:$rootScope});
     	return function(key, x, y, e, graph) {
         	return  'Super New Tooltip' +
             	'<h1>' + key + '</h1>' +
-                '<p>' +  y + ' at ' + x + '</p>'
+                '<p>' +  y + ' at ' + x + '</p>';
     	};
     };
 
@@ -123,7 +123,7 @@ $controller('BaseAMCtrl', {$scope:$scope,$rootScope:$rootScope});
                         var count = totalsCount[i];
                         if(total !== undefined)
                         {
-                            start = total;// Math.floor(total/count);
+                            start = total;
                             break;
                         }
                     }
@@ -135,7 +135,7 @@ $controller('BaseAMCtrl', {$scope:$scope,$rootScope:$rootScope});
                         var count = totalsCount[i];
                         if(total !== undefined)
                         {
-                            end = total;// Math.floor(total/count);
+                            end = total;
                             break;
                         }
                     }
@@ -151,7 +151,7 @@ $controller('BaseAMCtrl', {$scope:$scope,$rootScope:$rootScope});
 
                         if(total)
                         {
-                            var level = total;// Math.floor(total/count);
+                            var level = total;
                             result.push({x:i,y:level});
                         }
                     }

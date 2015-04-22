@@ -19,8 +19,6 @@ angular.module('gb.home')
     var lastTap = new Date();
     var lastQuality = new Date();
     
-    //SaveSpinnerService.addSection();
-
     $scope.$watch('entryDate',function(newVal) {
          refreshOnscreen();
     });
@@ -33,16 +31,6 @@ angular.module('gb.home')
         var dayStart = moment($scope.entryDate).startOf('day');
         var dayEnd = moment($scope.entryDate).endOf('day');
         ObjectiveService.get('sleep',dayStart
-        /*
-        ,dayEnd).then(function(d) {
-            if (angular.isDefined(d) && d !== null) {
-                $scope.sleep = d;
-            } else {
-                console.log('No Sleep Record found');
-                $scope.totalSleepTime = null;
-            }
-        });
-        */
         ,dayEnd).then(function(d) {
             if (angular.isDefined(d) && d !== null) {
                 if (Object.prototype.toString.call( d ) !== '[object Array]' )
@@ -227,9 +215,6 @@ angular.module('gb.home')
         //Check if stored beyond just front end
         if(record.state)
         {
-            //Store up for sending to database on Save
-            //$scope.sleepDeletes.push(record);
-
             AnalyticsService.event('Tapping Delete', {'Delete Data':'Sleep'});
 
             //Set delete in database
@@ -247,13 +232,13 @@ angular.module('gb.home')
             case 1:
                 return "button-terrible";
             case 2:
-                return "button-bad"
+                return "button-bad";
             case 3:
-                return "button-ok"
+                return "button-ok";
             case 4:
-                return "button-good"
+                return "button-good";
             case 5:
-                return "button-great"
+                return "button-great";
             default:
                 return 0;
         }
@@ -291,6 +276,5 @@ angular.module('gb.home')
            });
        }
     };
-    //document.addEventListener("deviceready", createTimePicker, false);
     createTimePicker();
 }]);

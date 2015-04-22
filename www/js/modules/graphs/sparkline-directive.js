@@ -8,7 +8,7 @@ angular.module('gb.home').directive('gbSparkline', ["$log", "$filter", function(
       bottom: 10,
       left: 10
     }
-  }
+  };
   function setUpGraph(element){
     graph.width = element[0].clientWidth;//d3.select("gb-sparkline").node().parentNode.clientWidth;
     graph.height = 35;
@@ -18,7 +18,7 @@ angular.module('gb.home').directive('gbSparkline', ["$log", "$filter", function(
       .attr("viewBox", "0 0 " + graph.width + " " + graph.height)
       .attr("height", graph.height)
       .attr("width", graph.width)
-      .attr("preserveAspectRatio", "xMidYMid meet")
+      .attr("preserveAspectRatio", "xMidYMid meet");
 
     graph.xScale = d3.time.scale()
       .range([graph.padding.left, (graph.width -  graph.padding.right) ]);
@@ -49,7 +49,7 @@ angular.module('gb.home').directive('gbSparkline', ["$log", "$filter", function(
       return {
        date: moment(d.t).startOf("day").toDate(),
        total_sleep: d.v
-       }
+       };
     });
 
     graph.xScale.domain(d3.extent(dateArray));
@@ -58,7 +58,7 @@ angular.module('gb.home').directive('gbSparkline', ["$log", "$filter", function(
     var line = d3.svg.line()
       .x(function(d) { return graph.xScale(d.date); })
       .y(function(d) { return graph.yScale(d.total_sleep); })
-      .interpolate('basis')
+      .interpolate('basis');
 
 
     var path = graph.svg.selectAll('path').data(data,function(d) {
@@ -78,11 +78,11 @@ angular.module('gb.home').directive('gbSparkline', ["$log", "$filter", function(
         },
         link: function (scope, element, attrs) {
           scope.$watch('monthlyAverages', function(data){
-              if(angular.isDefined(data) == false) return;
+              if(angular.isDefined(data) === false) return;
 
               updateGraph(data,element);
           });
         }
-  }
+  };
 
 }]);

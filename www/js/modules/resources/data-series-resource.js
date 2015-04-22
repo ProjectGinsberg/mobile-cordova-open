@@ -34,7 +34,7 @@ angular.module('gb.resources')
 				});
 				return series;
 			}
-		},
+		}
 	});
 	return resource;
 }]);

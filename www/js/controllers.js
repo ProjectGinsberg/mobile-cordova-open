@@ -6,7 +6,7 @@ angular.module('gb.home')
     $scope.currentTab = 'Home';
     $scope.tabChanged = function(newTab) {
         $scope.currentTab = newTab;
-    }
+    };
 }])
 .controller('LoginCtrl',['$scope','$rootScope','$state',function($scope,$rootScope,$state) {
     $scope.login = function() {
@@ -17,6 +17,5 @@ angular.module('gb.home')
         GAPI.Setup(null,$rootScope.clientId,$rootScope.clientSecret,
                    new GAPICallbacks(null, null, null, null, null, null, null, null));
         GAPI.DoLogin();
-        //showAbout();
     };
-}])
+}]);

@@ -8,7 +8,7 @@ filters.filter('toHoursAndMinutes', function() {
         var hours = Math.floor(Math.abs(minutes/60));
         var mins = Math.floor(Math.abs(minutes % 60));
         var output = "";
-        if (format == "long") {
+        if (format === "long") {
             if (hours !== 0) output += hours + " hours ";
             output += mins + " mins";
         } else if (format === 'hours') {

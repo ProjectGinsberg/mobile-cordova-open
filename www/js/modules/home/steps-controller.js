@@ -10,8 +10,6 @@ angular.module('gb.home')
     //Timer check
     var lastTap = new Date();
     
-    //SaveSpinnerService.addSection();
-
     $scope.addStoreText = function() {
         return $scope.newRecord === null? "+ Add Steps": "Store Steps"; 
     };
@@ -119,9 +117,6 @@ angular.module('gb.home')
         //Check if stored beyond just front end
         if(record.state)
         {
-            //Store up for sending to database on Save
-            //$scope.stepsDeletes.push(record);
-        
             AnalyticsService.event('Tapping Delete', {'Delete Data':'Steps'});
 
             //Set delete in database

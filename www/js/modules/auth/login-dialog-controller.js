@@ -16,7 +16,7 @@ angular.module('gb.auth')
 				.then(function(resp) {
 					$scope.error = "";
 					$scope.submitting = false;
-					$state.go('tab.dash')
+					$state.go('tab.dash');
 				},
 				function(resp) {
 					if (resp.data.status === 307) { // user disabled their account

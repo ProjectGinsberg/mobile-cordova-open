@@ -6,8 +6,6 @@ function($scope,$rootScope,WellbeingService,SyncService,AnalyticsService) {
 
     var recordsToProcess = 0;
     
-    //SaveSpinnerService.addSection();
-
     $scope.answerScores = [{
         score:1,
         text:"Strongly Disagree",

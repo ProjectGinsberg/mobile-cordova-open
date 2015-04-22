@@ -9,12 +9,7 @@ function($scope,$rootScope,$ionicModal,$state,ProfileService,UserService,LoginSe
     //TODO: This should really come through from the profile service,
     // so that we can unit test/reuse the logic
     $scope.firstNameEntry = ($scope.profile !== undefined? $scope.profile.first_name: "");
-    //$scope.lastNameEntry = ($scope.profile !== undefined? $scope.profile.last_name: "");
-    //$scope.phoneNumberEntry = ($scope.profile !== undefined? $scope.profile.phone_number: "");
-
-    //$scope.country = 1;
-    //$scope.countryName = ($scope.profile !== undefined? $scope.profile.country: "");
-
+    
     $scope.notificationOn = LocalNotificationService.notificationOn();
     $scope.notificationTime = LocalNotificationService.notificationTime();
 
@@ -26,11 +21,9 @@ function($scope,$rootScope,$ionicModal,$state,ProfileService,UserService,LoginSe
             $scope.profile = ProfileService.createNew();
         }
         if($scope.firstNameEntry) $scope.profile.first_name = $scope.firstNameEntry;
-        //if($scope.phoneNumberEntry) $scope.profile.phone_number = $scope.phoneNameEntry;
-
+        
         AnalyticsService.event('Settings Screen', {'Action':'Save'});
 
-        //$scope.profile.firstname = $scope.firstName;
         ProfileService.save($scope.profile);
         UserService.saveSections();
 
@@ -116,11 +109,6 @@ function($scope,$rootScope,$ionicModal,$state,ProfileService,UserService,LoginSe
 
         // so that we can unit test/reuse the logic
         $scope.firstNameEntry = ($scope.profile !== undefined? $scope.profile.first_name: "");
-        //$scope.lastNameEntry = ($scope.profile !== undefined? $scope.profile.last_name: "");
-        //$scope.phoneNumberEntry = ($scope.profile !== undefined? $scope.profile.phone_number: "");
-
-        //$scope.country = 1;
-        //$scope.countryName = ($scope.profile !== undefined? $scope.profile.country: "");
     });
 
     $scope.$on('$destroy', unbind);

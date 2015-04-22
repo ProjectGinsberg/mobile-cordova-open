@@ -1,1 +1,1 @@
-angular.module('gb.db', [])
+angular.module('gb.db', []);

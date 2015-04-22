@@ -9,7 +9,7 @@ angular.module('gb.resources')
     		get: {
     			method: 'GET'
             }
-        })
+        });
 
 	return resource;
 }]);

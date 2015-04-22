@@ -54,8 +54,8 @@ angular.module('gb.services')
            
         var p = Objective.query({
             objective:type,
-            start: dateFrom,//.format('YYYY-MM-DD HH:mm'),
-            end: dateTo//.format('YYYY-MM-DD HH:mm')
+            start: dateFrom,
+            end: dateTo
         }).$promise.then(function(d) {
             
             console.log("OS:getRemote: Got response back for " + type);

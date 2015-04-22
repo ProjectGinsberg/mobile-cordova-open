@@ -18,5 +18,5 @@ filters.filter('sleepQuality', function() {
                     break;
             }
         }
-    }
+    };
 });

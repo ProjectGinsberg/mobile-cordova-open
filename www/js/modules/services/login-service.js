@@ -34,18 +34,6 @@ angular.module('gb.services')
 
         console.log("LS:Login: Login");
 
-
-        //Test code
-        //localStorage.clear();
-            //Force token for browser debugging
-        //localStorage.token = "84AA1E229971DBBB3B967EC1DE847CB70F44D3C9"; //Release db
-        //localStorage.token = "A638F0412BC32402CAC92D2531DA6FF4CEF22421"; //Dev db
-            //Clear token for login simulator check
-        //localStorage.removeItem("token");
-            // Trigger storage reset
-        //if(localStorage.lastChange) delete localStorage.lastChange;
-
-
         Setup($rootScope.clientId,$rootScope.clientSecret,
                    null);
 
@@ -79,29 +67,6 @@ angular.module('gb.services')
     var HTTPWWW = function() { return "https://www."+BASE_URL; };
     var HTTPPLAT = function() { return "https://platform."+BASE_URL; };
 
-    /*
-    //Release
-    SIGNUP_URL: "https://platform.ginsberg.io/account/signup",
-    CONNECTIONS_URL: "https://platform.ginsberg.io/account/myconnections",
-    AUTHORIZATION_URL_START: "https://platform."+BASE_URL+"/authorisation/auth?response_type=code&client_id=",
-    ACCESS_TOKEN_URL: "https://platform."+BASE_URL+"/authorisation/token",
-    HTTPAPI: "https://api."+BASE_URL,
-    HTTPWWW: "https://www."+BASE_URL,
-    HTTPPLAT: "https://platform."+BASE_URL,
-    */
-
-    /*
-    //Local
-    private static String signupUrl: "https://platform.ginsberg.io/account/signup",
-    private static String connectionsUrl: "https://platform.ginsberg.io/account/myconnections",
-    private static String localPlatformUrl: "http://chriswebtest:16912",
-    private static String localAPIUrl: "http://chriswebtest:56924",
-    private static String authorizationUrlStart: localPlatformUrl+"/authorisation/auth?response_type=code&client_id=",
-    private static String accessTokenUrl: localPlatformUrl+"/authorisation/token",
-    private static String HTTPAPI: localAPIUrl,
-    private static String HTTPWWW: "https://www."+baseUrl,
-    private static String HTTPPLAT: localPlatformUrl,
-    */
     var AUTHORIZATION_URL_END = "&scope=BasicDemographicRead%20SubjectiveRead%20SubjectiveWrite%20ObjectiveRead%20ObjectiveWrite&redirect_uri=ginsberg://activation_code";
     ls.TOKEN_STORE_KEY = "Token";
 
@@ -136,7 +101,6 @@ angular.module('gb.services')
 
         if(HaveToken())
         {
-            //token = GetToken();
             console.log("Setup: Have token");
             ls.GainedAccess();
         }
@@ -163,7 +127,6 @@ angular.module('gb.services')
     //
     var ConnectionsWeb = function(backgroundID)
     {
-        //webSignup = true;
         ShowWeb(CONNECTIONS_URL, backgroundID);
     };
 
@@ -217,7 +180,6 @@ angular.module('gb.services')
         if(!loginWindow) return;
 
         // check if redirect url has code, access_token or error
-        //$(loginWindow).on('loadstart', function(e) {
         loginWindow.addEventListener('loadstop', function(e)
         {
             var stopurl = e.url;
@@ -243,7 +205,6 @@ angular.module('gb.services')
                             console.log("ShowWeb Found token");
 
                             clearInterval( loop );
-                            //webView.close();
                             auth = tag;
                             getAccessToken();
                         }
@@ -259,12 +220,11 @@ angular.module('gb.services')
       */
     var getAccessToken = function()
     {
-        //var params = "code="+auth+"&client_id="+clientID+"&client_secret="+clientSecret+"&grant_type=authorization_code";
         console.log("getAccessToken: Starting process");
 
         $.ajax({
             url: ACCESS_TOKEN_URL(),
-            data: {code:auth, client_id:clientID, client_secret:clientSecret, /*redirect_uri:options.redirect_uri,*/ grant_type:"authorization_code"},
+            data: {code:auth, client_id:clientID, client_secret:clientSecret, grant_type:"authorization_code"},
             type: 'POST',
          success: function(data)
                   {
@@ -287,8 +247,7 @@ angular.module('gb.services')
                     ls.GainedAccess();
 
                     console.log("getAccessToken: Finished access token");
-                    //successCallback(access_token, data);
-                  },
+                 },
           error: function(error)
                  {
                     ls.errorCallback(error, error);
@@ -306,9 +265,6 @@ angular.module('gb.services')
 
         $rootScope.$broadcast('gb.home.login.gainedaccess');
         AnalyticsService.event("Login");
-        //SetBusy(false);
-
-        //RemoveWebView();
     };
 
 
@@ -327,12 +283,6 @@ angular.module('gb.services')
     var HaveToken = function()
     {
         return localStorage.token !== undefined && localStorage.token !== null && localStorage.token.length > 1;
-    };
-
-
-    var GetToken = function()
-    {
-        return localStorage.token;
     };
 
 

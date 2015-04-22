@@ -14,16 +14,7 @@ angular.module('gb.aboutme')
     var nextMonthEnd =  moment().endOf('month').add(1,'month');
     var lastMonthStart = moment().startOf('month').subtract(1,'month');
     var lastMonthEnd =  moment().endOf('month').subtract(1,'month');
-/*
-    //Graph options
-    $scope.config = {
-        visible: false, // default: true
-        extended: false, // default: false
-        disabled: false, // default: false
-        autorefresh: true, // default: true
-        refreshDataOnly: false // default: false
-    };
-*/
+
     $scope.showRecent = true;
     //Shared date labels
     $scope.cachedDays = [];

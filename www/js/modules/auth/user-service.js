@@ -145,6 +145,6 @@ angular.module('gb.auth')
 		update: update,
 		get: get,
 		login: login,
-		logout: logout,
+		logout: logout
 	};
 }]);

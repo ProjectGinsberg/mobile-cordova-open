@@ -28,7 +28,6 @@ angular.module('gb.signup')
             $scope.slider = 0;
             
             $ionicSlideBoxDelegate.update();
-            //$ionicSlideBoxDelegate.enableSlide(false);
         }
     });
                 

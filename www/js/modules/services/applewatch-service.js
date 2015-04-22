@@ -33,21 +33,21 @@ angular.module('gb.services')
         console.log("AW: Found plugin");
         
         applewatch.init(function successHandler(appGroupId) 
-                        {
-                            console.log("AW: Success " + appGroupId);
-                            id = appGroupId;
-                            
-                            applewatch.addListener("testqueue", function(message) {
-                                console.log("Message received: " + message);
-                            });
+        {
+            console.log("AW: Success " + appGroupId);
+            id = appGroupId;
 
-                            appleWatchService.sendMessage("test send");
-                        }, 
-                        function errorHandler(e) 
-                        {
-                            console.log("AW: Found error init");
-                            console.log(e);
-                        });
+            applewatch.addListener("testqueue", function(message) {
+                console.log("Message received: " + message);
+            });
+
+            appleWatchService.sendMessage("test send");
+        }, 
+        function errorHandler(e) 
+        {
+            console.log("AW: Found error init");
+            console.log(e);
+        });
     };
     
     document.addEventListener("deviceready", onDeviceReady, false);

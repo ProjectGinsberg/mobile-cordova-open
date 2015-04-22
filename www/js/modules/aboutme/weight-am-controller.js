@@ -76,9 +76,6 @@ $controller('BaseAMCtrl', {$scope:$scope,$rootScope:$rootScope});
                     totalsCount[diff] = count;
                 }
 
-                //var result = [];
-                //totals = [1,4,5,0,2,34];
-
                 //Find first p
                 var start = 0;
                 var end = 0;

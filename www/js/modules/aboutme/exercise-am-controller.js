@@ -167,8 +167,11 @@ $controller('BaseAMCtrl', {$scope:$scope,$rootScope:$rootScope});
                         "values" : result[j]
                     });
                 }
+                
+                // Test data
                 //var r = [{key:"wibble",values:[{x:3,y:1,color:"#BFA782"},{x:4,y:2,color:"#BFA782"},{x:5,y:0,color:"#BFA782"}]},
                 //         {key:"wibble2",values:[{x:0,y:null},{x:4,y:1,color:"#8E82BF"},{x:5,y:1,color:"#8E82BF"}]}];
+                
                 $scope.updateData(data);
             } else {
                 $scope.updateData(null);

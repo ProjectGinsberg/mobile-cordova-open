@@ -1,1 +1,1 @@
-angular.module('gb.aboutme', ['ngAnimate','gb.services','gb.filters','nvd3'])
+angular.module('gb.aboutme', ['ngAnimate','gb.services','gb.filters','nvd3']);

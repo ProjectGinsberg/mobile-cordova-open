@@ -18,7 +18,7 @@ function($scope,$state,$rootScope,$http,UserService,LoginService,AnalyticsServic
         data.interested = false;
 
     $scope.questions = data;
-    //});
+    
     $scope.showMore = function() {
         $scope.valueLimit += 30;
     };

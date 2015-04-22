@@ -7,7 +7,6 @@ angular.module('gb.loginController', ['gb.services'])
         GAPI.Setup(null,$rootScope.clientId,$rootScope.clientSecret,
                    new GAPICallbacks(null, null, null, null, null, null, null, null));
         GAPI.DoLogin();
-        //showAbout();
     };
 
     $scope.entryDate = new Date();

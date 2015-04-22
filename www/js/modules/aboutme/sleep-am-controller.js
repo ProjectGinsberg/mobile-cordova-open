@@ -17,7 +17,6 @@ angular.module('gb.aboutme')
                 height: 180,
                 tooltip:false,
                 interactive:false,
-                rightAlignYAxis: true,
                 margin : {
                     top: 15,
                     right: 40,

@@ -137,9 +137,7 @@ angular.module('gb.services')
     var sendData = function(data, obj, callback)
     {
         data.timestamp = obj.timestamp;
-        //data.id = obj.id;
-        //data.measure = "I've been feeling cheerful";
-
+        
         console.log("Posting data to server of type wellbeing for " + JSON.stringify(data));
             
         var p = null;

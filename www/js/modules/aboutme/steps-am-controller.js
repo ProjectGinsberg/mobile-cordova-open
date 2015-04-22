@@ -1,18 +1,7 @@
 angular.module('gb.aboutme')
 .controller('StepsAMCtrl', ['$controller','$scope','$rootScope','ObjectiveService','SpinnerService',function($controller,$scope,$rootScope,ObjectiveService,SpinnerService) {
 $controller('BaseAMCtrl', {$scope:$scope,$rootScope:$rootScope});
-  
-    /*
-    //Graph options
-    $scope.config = {
-        visible: true, // default: true
-        extended: false, // default: false
-        disabled: false, // default: false
-        autorefresh: false, // default: true
-        refreshDataOnly: true // default: false
-    };
-    */
-   
+     
     $scope.options = {
         chart: {
                 dispatch: {
@@ -80,9 +69,6 @@ $controller('BaseAMCtrl', {$scope:$scope,$rootScope:$rootScope});
                     totals[diff] = total;
                 }
 
-                //var result = [];
-                //totals = [1,4,5,0,2,34];
-
                 for(var i = 0; i < $scope.days; ++i)
                 {
                     var total = totals[i];
@@ -95,10 +81,6 @@ $controller('BaseAMCtrl', {$scope:$scope,$rootScope:$rootScope});
                 "key" : "Steps" ,
                 "values" : result
                 }];
-
-                //$scope.xDomain = [0,1,5,6];
-                //$scope.xRange = [-10000,50000,1,1999999,10000];
-    
 
                 $scope.updateData(data);
             } else {

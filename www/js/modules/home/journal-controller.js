@@ -4,8 +4,6 @@ angular.module('gb.home')
     $scope.journalRecord = null;
     $scope.savedEntry = null;
     
-    //SaveSpinnerService.addSection();
-
     $scope.addTextToEntry = function(text) {
         if ($scope.journalEntry === null)
             $scope.journalEntry = text;

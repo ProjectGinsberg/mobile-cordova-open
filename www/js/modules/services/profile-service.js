@@ -178,15 +178,8 @@ angular.module('gb.services')
     // Internal - Push data to server
     var saveRemote = function(obj) {
         var p = new Profile();
-        //p.country = obj.country;
         if(obj.first_name) p.first_name = obj.first_name;
-        //p.id = obj.id;
         if(obj.phone_number) p.phone_number = obj.phone_number;
-        //p.receive_newsletter = obj.recieve_newsletter;
-        //p.recent_wellbeing_data = obj.recent_wellbeing_data;
-        //p.tags_used = obj.tags_used;
-        //p.user_since = obj.user_since;
-        //p.wellbeing_metrics = obj.wellbeing_metrics;
         
         return sendData(p, obj);
     };

@@ -137,7 +137,6 @@ angular.module('gb.home')
     
     
     
-    
     //iOS test code
     
     //Driver code for own plugin test
@@ -407,7 +406,7 @@ angular.module('gb.home')
         //readHeight();
         //saveWeight();
         //readWeight();
-        testWeight();
+        //  testWeight();
         //saveWorkout();
         //findWorkouts();
         //monitorSampleType();
@@ -491,9 +490,6 @@ angular.module('gb.home')
         if(newVal === 'Home')
         {
             $scope.toggleDelete = false;
-            
-            //TEMP HACK TO REDRAW DISPLAY
-            //$rootScope.$broadcast('gb.backend.databaseUpdated');
         }
 
         if (newVal === 'Graphs' && prevVal === 'Home') {

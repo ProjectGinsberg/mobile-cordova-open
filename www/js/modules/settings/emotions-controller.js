@@ -45,7 +45,7 @@ function($scope,$state,$rootScope,$http,
         return 1;
     });
     $scope.questions = data;
-    //});
+    
     $scope.showMore = function() {
         $scope.valueLimit += 30;
     };

@@ -36,36 +36,7 @@ angular.module('gb.services')
     
     localNotificationService.set = function(time)
     {
-        /*
-        if (navigator.userAgent.match(/(iPhone|iPod)/))
-        {
-            console.log("LN: Checking iOS stuff");
-
-            console.log("LN: Checking iOS hasPermission");
-            window.plugin.notification.local.hasPermission(function (granted) {
-                console.log("LN: iOS hasPermission " + granted);
-                if(granted === true) 
-                {
-                    console.log("LN: iOS calling notification after permission");
-                    setNotification(time);
-                }
-            });
-
-            console.log("LN: Registering iOS Permissions");
-            window.plugin.notification.local.registerPermission(function (granted) {
-                console.log("LN: iOS had registered permission " + granted);
-                if(granted === true) 
-                {
-                    console.log("LN: iOS calling notification with permission");
-                    setNotification(time);
-                }
-            });
-        }
-        else
-        {*/
-            setNotification(time);
-        //}
-
+        setNotification(time);
         console.log("LN: Done setting notification");
     };
     
@@ -88,22 +59,6 @@ angular.module('gb.services')
         }
                     
         console.log("LN: Finished");
-
-        //window.plugin.notification.local.add({ message: 'Update Great app!' });
-        /*
-        window.plugin.notification.local.add({
-            id: "111",  // A unique id of the notification
-          date: _60_seconds_from_now,    // This expects a date object
-       message: "Message text",  // The message that is displayed
-         title: "Title text",  // The title of the message
-        repeat: "hourly",  // Either 'secondly', 'minutely', 'hourly', 'daily', 'weekly', 'monthly' or 'yearly'
-         badge: 4,  // Displays number badge to notification
-         //sound:      String,  // A sound to be played
-         //json:       String,  // Data to be passed through the notification
-    autoCancel: true, // Setting this flag and the notification is automatically cancelled when the user clicks it
-       ongoing: false // Prevent clearing of notification (Android only)
-        });//, callback, scope);
-    */    
     };
     
     var onDeviceReady = function() {  

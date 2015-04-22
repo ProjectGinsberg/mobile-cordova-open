@@ -1,1 +1,1 @@
-angular.module('gb.resources',['ngResource'])
+angular.module('gb.resources',['ngResource']);

@@ -7,9 +7,6 @@ angular.module('gb.home')
     $scope.newRecord = null;
     var recordsToProcess = 0;
 
-    //Switching to individual saving
-    //SaveSpinnerService.addSection();
- 
     //Timer check
     var lastTap = new Date();
     
@@ -166,6 +163,5 @@ angular.module('gb.home')
             document.getElementById('alcoholRange').style.height = '50px';
         }
     };
-    //document.addEventListener("deviceready", fixRange, false);
     fixRange();
 }]);
