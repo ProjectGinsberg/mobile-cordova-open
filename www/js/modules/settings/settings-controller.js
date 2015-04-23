@@ -14,7 +14,8 @@ function($scope,$rootScope,$ionicModal,$state,ProfileService,UserService,LoginSe
     $scope.notificationTime = LocalNotificationService.notificationTime();
 
     var nonNativeTime;
-
+    var clickTimer = new Date().getTime();
+    var clickCount = 7;
 
     $scope.save = function() {
         if ($scope.profile === null) {
@@ -46,6 +47,30 @@ function($scope,$rootScope,$ionicModal,$state,ProfileService,UserService,LoginSe
         window.open('https://platform.ginsberg.io/account/myconnections', '_system');
     };
 
+
+    $scope.showConsole = function() {
+        
+        var now = new Date().getTime();
+        var timesince = now - clickTimer;
+   
+        if(timesince < 400)
+        {
+            --clickCount;
+            if(clickCount === 0)
+            {
+                clickCount = 7;
+                $rootScope.switchConsoleOutput();
+            }
+        }    
+        else
+        {
+            clickCount = 7;
+        }
+        
+        clickTimer = now;
+    };
+   
+   
     $scope.showTimePicker = function() {
         if(!$rootScope.usingNative) return;
 
