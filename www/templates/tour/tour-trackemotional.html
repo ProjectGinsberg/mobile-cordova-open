@@ -15,7 +15,8 @@
             <div class="list list-inset">
                 <ion-item
                     class="animate-repeat item item-checkbox"
-                    ng-repeat="question in questions | limitTo:valueLimit">
+                    ng-repeat="question in questions | limitTo:valueLimit"
+                    style="font-size:8px!important">
                     <label class="checkbox">
                       <input
                        ng-disabled="selectedQuestions() > 2 && !question.interested"
