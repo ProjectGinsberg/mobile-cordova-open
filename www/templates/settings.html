@@ -69,9 +69,8 @@
              <ion-list>
                  <div class="list list-inset">
                      <ion-item
-                         class="animate-repeat item item-checkbox"
-                         ng-repeat="question in questions | limitTo:valueLimit"
-                         style="font-size:8px!important">
+                         class="animate-repeat item item-checkbox item-text-wrap"
+                         ng-repeat="question in questions | limitTo:valueLimit">
                          <label class="checkbox">
                            <input
                             ng-disabled="selectedQuestions() > 2 && !question.interested"
@@ -82,6 +81,7 @@
                        </ion-item>
                  </div>
              </ion-list>
+             
              <div class="list-inset show-more">
                  <button ng-show="valueLimit < questions.length" class="button-block button button-outline button-positive" ng-click="showMore()">Show More</button>
              </div>
@@ -98,7 +98,7 @@
              </div>
             <button ng-click="switchNotification()" class="button button-block button-positive">{{notificationOn? 'Disable': 'Enable'}}</button>
       </div>
-      <button class="button-block button-balanced button" ng-click="openDisableModal()">Disable Account</button>
+      <button class="button-block button-balanced button" ng-show="false" ng-click="openDisableModal()">Disable Account</button>
       <button class="button-block button-balanced button" ng-click="save()">Save</button>
       <div class="card settingsCard">
          <div class="item item-divider header">
