@@ -53,7 +53,7 @@ function($scope,$rootScope,$ionicModal,$state,ProfileService,UserService,LoginSe
         var now = new Date().getTime();
         var timesince = now - clickTimer;
    
-        if(timesince < 400)
+        if(timesince < 10000)
         {
             --clickCount;
             if(clickCount === 0)
@@ -150,8 +150,78 @@ function($scope,$rootScope,$ionicModal,$state,ProfileService,UserService,LoginSe
         $scope.disableModal.show();
       };
       $scope.closeDisableModal = function() {
-        $scope.disableModal.hide();
+        disableDisable();
       };
+      
+      var disableDisable = function() {
+        $scope.disableModal.hide();
+        
+        var scroller = document.getElementById("disableScroll").parentNode;
+        scroller.style.webkitTransform = "";
+        document.getElementById("CloseEmail").value = "";
+        document.getElementById("ClosePassword").value = "";
+      };
+      
+      $scope.attemptDisable = function() {
+        var email = document.getElementById("CloseEmail").value;
+        var password = document.getElementById("ClosePassword").value;
+        var success = false;
+
+        UserService.disableUser(email,password)
+                .success(function(data, status, headers, config) {
+                    // probably want to then push them onto the signin flow
+                    console.log("Disabled account");
+                    success = true;
+                    disableDisable();
+                    LoginService.logout();
+                    $state.go('welcome');
+                })
+                .error(function(data, status, headers, config) {
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                    var here = 1;
+                })
+                .then(function(response, r2) {
+                    // failed if not success by this point
+                    if(!success)
+                    {
+                        console.log("Did not disable account");
+                    }
+                }, 
+                function(response) { // optional
+                    // failed
+                });
+      };
+      
+      $scope.attemptDelete = function() {
+        var email = document.getElementById("CloseEmail").value;
+        var password = document.getElementById("ClosePassword").value;
+
+        UserService.deleteUser(email,password).success(function(data, status, headers, config) {
+                    // probably want to then push them onto the signin flow
+                    console.log("Deleted account");
+                    success = true;
+                    disableDisable();
+                    LoginService.logout();
+                    $state.go('welcome');
+                })
+                .error(function(data, status, headers, config) {
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                    var here = 1;
+                })
+                .then(function(response, r2) {
+                    // failed if not success by this point
+                    if(!success)
+                    {
+                        console.log("Did not delete account");
+                    }
+                }, 
+                function(response) { // optional
+                    // failed
+                });
+      };
+      
       //Cleanup the modal when we're done with it!
       $scope.$on('$destroy', function() {
         $scope.disableModal.remove();

@@ -21,12 +21,26 @@ angular.module('gb.signup')
             }
             
             //Resize fix 
-            $('.slider-slides').width('400%');
-            $('.slider-slide').width('25%');
+            try
+            {
+                $('.slider-slides').width('400%');
+            }
+            catch(e)
+            {
+                console.log("Exception " + e);
+            }
+            try
+            {
+                $('.slider-slide').width('25%');
+            }
+            catch(e)
+            {
+                console.log("Exception " + e);
+            }
             
             //Reset index
             $scope.slider = 0;
-            
+            $scope.$digest();
             $ionicSlideBoxDelegate.update();
         }
     });

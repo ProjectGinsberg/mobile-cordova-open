@@ -193,7 +193,7 @@
                 <h1 class="title">Disable Account</h1>
             </ion-header-bar>
             <ion-content class="has-header has-subheader">
-                <div class="padding">
+                <div class="padding" id="disableScroll">
                     <p>
                         You can turn off your Gisberg account if you need to take a break.
                         We wont destroy your data and you can come back whenever you feel like it.
@@ -207,15 +207,17 @@
                             <legend style="display: none;">Credentials</legend>
                             <div class="form-group">
                                 <label for="email">Email Address</label>
-                                <input type="email" class="form-control" name="email" placeholder="Your email address" ng-model="disableEmail" />
+                                <input type="email" id="CloseEmail" class="form-control" name="email" placeholder="Your email address" ng-model="disableEmail" />
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" name="password" placeholder="Your password" ng-model="disablePassword" />
+                                <input type="password" id="ClosePassword" class="form-control" name="password" placeholder="Your password" ng-model="disablePassword" />
                             </div>
                         </fieldset>
                     </form>
                     <button class="button-block button-balanced button" ng-click="attemptDisable()">Disable Account</button>
+                    <button class="button-block button-balanced button" ng-click="attemptDelete()">Delete Account</button>
+                    <button class="button-block button-balanced button" ng-click="closeDisableModal()">Close</button>
                 </div>
             </ion-content>
         </ion-modal-view>

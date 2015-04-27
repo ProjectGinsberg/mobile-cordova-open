@@ -1,6 +1,8 @@
 angular.module('gb.services')
 .service( 'UserService', ['$q','$http','DbService','$rootScope',function($q,$http, DbService, $rootScope) {
     var USER_SIGNUP_URL = 'https://platform.ginsberg.io/account/externalsignup';
+    var USER_DISABLE_URL = 'https://platform.ginsberg.io/Diagnostics/DisableAccount';
+    var USER_DELETE_URL = 'https://platform.ginsberg.io/Diagnostics/DeleteAccount';
     var USER_PROFILE_URL = 'https://api.ginsberg.io/v1/me';
     var userService = {};
 
@@ -113,6 +115,26 @@ angular.module('gb.services')
             // TODO: decide what to do on failure of the endpoint
             console.log('signup failure');
         });
+    };
+    userService.disableUser = function(email,
+                                      password) {
+
+        var payload = {
+            email: email,
+            password: password
+        };
+        console.log("Disabling " + email);
+        return $http.post(USER_DISABLE_URL, payload);
+    };
+    userService.deleteUser = function(email,
+                                      password) {
+
+        var payload = {
+            email: email,
+            password: password
+        };
+        console.log("Deleting " + email);
+        return $http.post(USER_DELETE_URL, payload);
     };
     userService.saveSections = function() {
         localStorage.settings = JSON.stringify(userInterestedSections);
