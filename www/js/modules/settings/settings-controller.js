@@ -1,4 +1,4 @@
-angular.module('gb.settings')
+angular.module('gb.settings', ['ngSanitize', 'ngCsv'])
 .controller('SettingsCtrl', ['$scope','$rootScope','$ionicModal',
 '$state','ProfileService','UserService','LoginService','AnalyticsService',
 'LocalNotificationService',
@@ -161,6 +161,19 @@ function($scope,$rootScope,$ionicModal,$state,ProfileService,UserService,LoginSe
         document.getElementById("CloseEmail").value = "";
         document.getElementById("ClosePassword").value = "";
       };
+      
+      
+      
+      $scope.exportData = function() {
+          return [{a: 1, b:2}, {a:3, b:4}];
+      };
+      
+      $scope.getHeader = function () {
+          return ["A", "B"];
+      };
+
+      
+      
       
       $scope.attemptDisable = function() {
         var email = document.getElementById("CloseEmail").value;

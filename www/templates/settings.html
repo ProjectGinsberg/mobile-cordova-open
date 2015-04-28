@@ -88,25 +88,31 @@
          </div>
       </div>
 
-         <div class="card settingsCard" id="NotificationCard">
-            <div class="item item-divider header">
-                <span class='card-title'>Notification</span>
+        <div class="card settingsCard" id="NotificationCard">
+           <div class="item item-divider header">
+               <span class='card-title'>Notification</span>
+           </div>
+           <div class="item item-input">
+               <span class="input-label">Notification {{notificationOn? "On": "Off"}}</span>
+               <div class="input-field" id="NotificationTime" data-tap-disabled="true"><div class="time-picker" id="NativeTime" ng-click="showTimePicker()">{{notificationTime | date:'HH:mm'}}</div></div>
             </div>
-            <div class="item item-input">
-                <span class="input-label">Notification {{notificationOn? "On": "Off"}}</span>
-                <div class="input-field" id="NotificationTime" data-tap-disabled="true"><div class="time-picker" id="NativeTime" ng-click="showTimePicker()">{{notificationTime | date:'HH:mm'}}</div></div>
-             </div>
-            <button ng-click="switchNotification()" class="button button-block button-positive">{{notificationOn? 'Disable': 'Enable'}}</button>
+           <button ng-click="switchNotification()" class="button button-block button-positive">{{notificationOn? 'Disable': 'Enable'}}</button>
       </div>
       <button class="button-block button-balanced button" ng-show="true" ng-click="openDisableModal()">Disable Account</button>
       <button class="button-block button-balanced button" ng-click="save()">Save</button>
+      <div class="card settingsCard" id="ExportCard">
+           <div class="item item-divider header">
+               <span class='card-title'>Export Data</span>
+           </div>
+           <button class="button button-block button-positive" ng-csv="exportData()" csv-header="getHeader()" filename="test" field-separator="," decimal-separator=".">Export to CSV file</button>
+      </div>
       <div class="card settingsCard">
          <div class="item item-divider header">
              <span class='card-title' ng-click="showConsole()">App Info</span>
          </div>
          <div class="list">
          <div class="item">
-                <span>App Version: Beautiful Banoffee (2.0.0)</span>
+                <span>App Version: Carrot Cupcake (3.0.0)</span>
          </div>
          <div class="item">
                 <span>Bugs and comments: <u><a class="link" ng-click="loadUserVoice()">ginsberg.uservoice.com</a></u></span>
