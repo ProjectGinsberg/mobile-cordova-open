@@ -5,7 +5,6 @@
     <div class="page-title"><h3>Settings</h3></div>
 
 <div class="pull-right">
-
        <button class="button-header button button-light great button-clear" ng-click="save()">Save</button>
 </div>
 </ion-header-bar>
@@ -35,6 +34,7 @@
                 <div class="item item-body">
                     <div class="item-input button-logout">
                         <button class="button button-terrible button button-small" style="width:70px;" ng-click="logout()">Log out</button>
+                        <button class="button-energized button-balanced button button-small" style="margin-left:8px" ng-show="true" ng-click="openDisableModal()">Disable Account</button>
                     </div>
                 </div>
             </div>
@@ -56,7 +56,10 @@
             </div>
             <div class="list">
                 <span class="padding">Connect other apps to Ginsberg</span>
-                <button ng-click="loadConnections()" class="button button-block button-positive">Go to Connections</button>
+                <div class="item-input">
+                    <button ng-click="loadConnections()" class="button button-block button-positive">Go to Connections</button>
+            
+                </div>
             </div>
       </div>
 
@@ -98,13 +101,15 @@
             </div>
            <button ng-click="switchNotification()" class="button button-block button-positive">{{notificationOn? 'Disable': 'Enable'}}</button>
       </div>
-      <button class="button-block button-balanced button" ng-show="true" ng-click="openDisableModal()">Disable Account</button>
+      
       <button class="button-block button-balanced button" ng-click="save()">Save</button>
       <div class="card settingsCard" id="ExportCard">
            <div class="item item-divider header">
                <span class='card-title'>Export Data</span>
            </div>
-           <button class="button button-block button-positive" ng-csv="exportData()" csv-header="getHeader()" filename="test" field-separator="," decimal-separator=".">Export to CSV file</button>
+          <div class="item-input">
+              <button class="button button-block button-positive" ng-csv="exportData()" csv-header="getHeader()" filename="test" field-separator="," decimal-separator=".">Export to CSV file</button>
+          </div>
       </div>
       <div class="card settingsCard">
          <div class="item item-divider header">
@@ -112,10 +117,14 @@
          </div>
          <div class="list">
          <div class="item">
+             <div class="item-input">
                 <span>App Version: Carrot Cupcake (3.0.0)</span>
+             </div>
          </div>
          <div class="item">
+             <div class="item-input">
                 <span>Bugs and comments: <u><a class="link" ng-click="loadUserVoice()">ginsberg.uservoice.com</a></u></span>
+             </div>
          </div>
          </div>
       </div>
