@@ -179,6 +179,39 @@ angular.module('ngCsv.services').
 
 
   }]);
+  
+  
+  
+  
+  
+   function gotFS(fileSystem) {
+        fileSystem.root.getFile("readme.txt", {create: true, exclusive: false}, gotFileEntry, fail);
+    }
+
+    function gotFileEntry(fileEntry) {
+        fileEntry.createWriter(gotFileWriter, fail);
+    }
+
+    function gotFileWriter(writer) {
+        writer.onwriteend = function(evt) {
+            console.log("contents of file now 'some sample text'");
+            writer.truncate(11);  
+            writer.onwriteend = function(evt) {
+                console.log("contents of file now 'some sample'");
+                writer.seek(4);
+                writer.write(" different text");
+                writer.onwriteend = function(evt){
+                    console.log("contents of file now 'some different text'");
+                }
+            };
+        };
+        writer.write("some sample text");
+    }
+
+    function fail(error) {
+        console.log(error.code);
+    }
+
 /**
  * ng-csv module
  * Export Javascript's arrays to csv files from the browser
@@ -278,8 +311,17 @@ angular.module('ngCsv.directives').
 
             $document.find('body').append(downloadLink);
             $timeout(function () {
+              var dl = downloadLink[0];
+              dl.click();
               downloadLink[0].click();
               downloadLink.remove();
+              
+              console.log("Trying local file system");
+              
+              window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+              
+              console.log("Tried local file system");
+              
             }, null);
           }
         }
