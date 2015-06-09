@@ -152,7 +152,26 @@ angular.module('gb.home')
         if(typeof(window.plugins) !== "undefined" && typeof(window.plugins.researchkit) !== "undefined")
         window.plugins.researchkit.survey(
         {
-          'instructionSteps' : [
+          // I think you'd either choose consent or instruction
+          /*'consentSteps': [
+            {
+              'id': 'consent overview',
+              'title': 'overview title',
+              'sectionType': 'ORKConsentSectionTypeOverview', // or 'overview'
+              'summary': 'overview summary',
+              'content': 'overview content' // optional, when 'learn more' is pressed
+            },
+            {
+              'id': 'consent2',
+              'title': 'data gathering title',
+              'sectionType': 'ORKConsentSectionTypeDataGathering', // or 'dataGathering'
+              'summary': 'data gathering summary',
+              'htmlContent': '<strong>html</strong> content', // optional
+              'content': 'data gathering content' // optional (htmlContent wins if both are set)
+            }
+          ],*/
+          /*
+          'instructionSteps': [
             {
               'id': 'instruction1',
               'title': 'instr 1',
@@ -163,20 +182,29 @@ angular.module('gb.home')
               'title': 'instr 2',
               'text': 'instrtext 2'
             }
-          ],
-          'questionSteps' : [
+          ],*/
+          // for possible anserFormats, see ORKAnswerFormat.h
+          'questionSteps': [
+            {
+              'id': 'q0',
+              'title': "I've been feeling relaxed",
+              'answerFormat': 'ORKTextChoiceAnswerFormat', // or 'numeric'
+              'style': 'MultipleChoice',
+              'textChoices': ["Strongly Agree","Agree","Undecided","Disagree","Strongly Disagree"] // optional
+            },
             {
               'id': 'q1',
-              'title': 'How old are you?',
-              'answerFormat': 'ORKNumericAnswerFormat', // or 'numeric'
-              'unit': 'years',
-              'minimum': 18, // optional
-              'maximum': 80  // optional
+              'title': "I've been feeling good about myself",
+              'answerFormat': 'ORKTextChoiceAnswerFormat', // or 'numeric'
+              'style': 'MultipleChoice',
+              'textChoices': ["Strongly Agree","Agree","Undecided","Disagree","Strongly Disagree"] // optional
             },
             {
               'id': 'q2',
-              'title': 'Are you sexy?',
-              'answerFormat' : 'ORKBooleanAnswerFormat' // or 'boolean'
+              'title': "I've been feeling able to do things I needed to",
+              'answerFormat': 'ORKTextChoiceAnswerFormat', // or 'numeric'
+              'style': 'MultipleChoice',
+              'textChoices': ["Strongly Agree","Agree","Undecided","Disagree","Strongly Disagree"] // optional
             }
           ]
         },
