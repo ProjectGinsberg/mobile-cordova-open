@@ -8,7 +8,7 @@ angular.module('gb.services')
     appleWatchService.sendMessage = function(message) {
         console.log("AW: Send message " + message);
         
-        if(typeof(applewatch) === "undefined" || device.platform.toLowerCase().indexOf("ios") !== 0) {
+        if(typeof(applewatch) === "undefined" || device.platform === null || device.platform.toLowerCase().indexOf("ios") !== 0) {
             console.log("AW: Not supported");
             return;
         }
@@ -25,7 +25,7 @@ angular.module('gb.services')
     var onDeviceReady = function() {  
         console.log("AW: Device ready");
         
-        if(typeof(applewatch) === "undefined" || device.platform.toLowerCase().indexOf("ios") !== 0) {
+        if(typeof(applewatch) === "undefined" || device.platform === null || device.platform.toLowerCase().indexOf("ios") !== 0) {
             console.log("AW: Not supported");
             return;
         }

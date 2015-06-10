@@ -173,12 +173,36 @@ function($scope,$rootScope,$ionicModal,$state,ProfileService,UserService,LoginSe
       };
 
       
+      var showToast = function(msg) {
+        if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|IEMobile)/)) {
+            if (window.plugins !== undefined && window.plugins.toast !== undefined) {
+                window.plugins.toast.showShortCenter(msg,
+                        function(a){console.log('toast success: ' + a);},
+                        function(b){console.log('toast error: ' + b);});
+            }
+        };
+      };
       
+      var checkEntries = function() {
+        
+        var email = document.getElementById("CloseEmail").value;
+        var password = document.getElementById("ClosePassword").value;
+        
+        if(email === undefined || password === undefined || email === "" || password === "")
+        {
+            showToast("Please enter valid email and password");
+            return false;
+        }
+        
+        return true;
+      };
       
       $scope.attemptDisable = function() {
         var email = document.getElementById("CloseEmail").value;
         var password = document.getElementById("ClosePassword").value;
         var success = false;
+
+        if(!checkEntries()) return;
 
         UserService.disableUser(email,password)
                 .success(function(data, status, headers, config) {
@@ -193,23 +217,29 @@ function($scope,$rootScope,$ionicModal,$state,ProfileService,UserService,LoginSe
                     // called asynchronously if an error occurs
                     // or server returns response with an error status.
                     var here = 1;
+                    showToast("Problem disabling account.");
                 })
                 .then(function(response, r2) {
                     // failed if not success by this point
                     if(!success)
                     {
                         console.log("Did not disable account");
+                        showToast("Problem disabling account.");
                     }
                 }, 
                 function(response) { // optional
                     // failed
+                    showToast("Problem disabling account.");
                 });
       };
       
       $scope.attemptDelete = function() {
         var email = document.getElementById("CloseEmail").value;
         var password = document.getElementById("ClosePassword").value;
+        var success = false;
 
+        if(!checkEntries()) return;
+        
         UserService.deleteUser(email,password).success(function(data, status, headers, config) {
                     // probably want to then push them onto the signin flow
                     console.log("Deleted account");
@@ -222,16 +252,19 @@ function($scope,$rootScope,$ionicModal,$state,ProfileService,UserService,LoginSe
                     // called asynchronously if an error occurs
                     // or server returns response with an error status.
                     var here = 1;
+                    showToast("Problem deleting account.");
                 })
                 .then(function(response, r2) {
                     // failed if not success by this point
                     if(!success)
                     {
                         console.log("Did not delete account");
+                        showToast("Problem deleting account.");
                     }
                 }, 
                 function(response) { // optional
                     // failed
+                    showToast("Problem deleting account.");
                 });
       };
       

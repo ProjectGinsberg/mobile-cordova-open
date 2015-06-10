@@ -24,6 +24,12 @@ angular.module('gb.services')
         impl.show(false);
     };
     
+    var active = function() {
+        return !(typeof(spinnerplugin) === "undefined" 
+                || (typeof(device.platform) !== "undefined" && device.platform !== null && (   device.platform.toLowerCase().indexOf("win") === 0
+                                                                 || device.platform.toLowerCase().indexOf("black") === 0) ));
+    };
+    
     //Only use directly if not using waitingSections counter
     impl.show = function(truth)
     {
@@ -33,8 +39,7 @@ angular.module('gb.services')
         {
             showingSpinner = true;
         
-            if (typeof(spinnerplugin) === "undefined" || device.platform.toLowerCase().indexOf("win") === 0
-                                                      || device.platform.toLowerCase().indexOf("black") === 0) 
+            if (!active()) 
             {
                 console.log("Showing fake spinner");
                 document.getElementById("wait").style.visibility = "visible";
@@ -61,8 +66,7 @@ angular.module('gb.services')
             //Incase spinnerplugin is not setup before first call - so native shows non-native spinner
             document.getElementById("wait").style.visibility = "hidden";
             
-            if (typeof(spinnerplugin) === "undefined" || device.platform.toLowerCase().indexOf("win") === 0
-                                                      || device.platform.toLowerCase().indexOf("black") === 0) 
+            if (!active())
             {
             }
             else

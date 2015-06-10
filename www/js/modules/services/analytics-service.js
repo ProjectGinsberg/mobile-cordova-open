@@ -74,12 +74,6 @@ angular.module('gb.services')
     
     var onPause = function() {
         console.log("Detected Pause");
-        if (typeof(Localytics) === "undefined" || device.platform.toLowerCase().indexOf("win") === 0
-                                               || device.platform.toLowerCase().indexOf("black") === 0) 
-        {
-            console.log("LC not setup!");
-            return;
-        }
         if(usingNative())
         {
             Localytics.close();

@@ -33,7 +33,7 @@ angular.module('gb.home')
     // FIND BETTER LOCATION? Placed here as will always be setup
     var addClassList = function (name) {
 
-        if (typeof (device) !== "undefined" && device.platform.toLowerCase().indexOf("win") === 0) {
+        if (typeof (device) !== "undefined" && device.platform !== null && device.platform.toLowerCase().indexOf("win") === 0) {
             //Fix missing lists
             var c = document.getElementsByTagName(name);
             for (var i = 0; i < c.length; i++) {
@@ -48,7 +48,7 @@ angular.module('gb.home')
         }
     };
     $rootScope.fixScrolling = function () {
-        if (typeof (device) !== "undefined" && device.platform.toLowerCase().indexOf("win") === 0) {
+        if (typeof (device) !== "undefined" && device.platform !== null && device.platform.toLowerCase().indexOf("win") === 0) {
             //Fix for size scrolling
             var items = document.getElementsByClassName('item-body');
             for (i = 0; i < items.length; i++) {
