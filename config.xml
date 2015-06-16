@@ -12,8 +12,9 @@
   <plugin name="InAppBrowser" value="org.apache.cordova.inappbrowser"/>
   <plugin name="NetworkStatus" value="org.apache.cordova.network-information"/>
   <plugin name="SpinnerPlugin" value="it.mobimentum.phonegapspinnerplugin"/>
-  <plugin name="spinnerplugin" value="it.mobimentum.phonegapspinnerplugin"/>
+  <plugin name="File" value="org.apache.cordova.FileUtils" />
   <plugin name="Device" value="org.apache.cordova.device"/>
+  <plutin name="Console" value="org.apache.cordova.console"/>
   
   <!--preference name="WebSecurity" value="disable"/-->
   
@@ -22,6 +23,7 @@
   <preference name="DisallowOverscroll" value="true"/>
   <preference name="BackupWebStorage" value="none"/>
   <preference name="android-minSdkVersion" value="14"/>
+  <preference name="android-targetSdkVersion" value="22" />
   <preference name="android-installLocation" value="auto"/>
   <preference name="deployment-target" value="7.0"/>
   <preference name="fullscreen" value="true" />
@@ -46,10 +48,24 @@
     <param name="ios-package" value="DatePicker"/>
   </feature>
 
+  <feature name="File">
+    <param name="ios-package" value="CDVFile"/>
+  </feature>
+
   <feature name="DatePickerPlugin">
     <param name="android-package" value="com.sharinglabs.cordova.plugin.datepicker.DatePickerPlugin"/>
   </feature>
   
+  <feature name="Toast">
+    <param name="ios-package" value="Toast" />
+  </feature>
+  <feature name="Toast">
+    <param name="android-package" value="nl.xservices.plugins.Toast" />
+  </feature>
+  <feature name="Toast">
+    <param name="wp-package" value="Toast"/>
+  </feature>
+
   <feature name="http://api.phonegap.com/1.0/network"/>
   <feature name="http://api.phonegap.com/1.0/notification"/>
   

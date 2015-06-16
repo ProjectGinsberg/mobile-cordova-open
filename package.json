@@ -16,20 +16,20 @@
     "shelljs": "^0.3.0"
   },
   "cordovaPlugins": [
-    "plugin-clones/cordova-plugin-console-master",
-    "plugin-clones/cordova-plugin-device-master",
-    "plugin-clones/cordova-plugin-dialogs-master",
-    "plugin-clones/cordova-plugin-inappbrowser-master",
-    "plugin-clones/cordova-plugin-network-information-master",
-    "plugin-clones/cordova-plugin-splashscreen-master",
-    "plugin-clones/cordova-plugin-statusbar-master",
-    "plugin-clones/cordova-plugin-local-notifications-master",
-    "plugin-clones/phonegap-master",
-    "plugin-clones/HealthKit-master",
-    "plugin-clones/phonegap-plugin-loading-spinner-master",
-    "plugin-clones/Toast-PhoneGap-Plugin-master",
-    "plugin-clones/cordova-plugin-pedometer-master",
-    "plugin-clones/cordova-plugin-apple-watch-master",
-    "plugin-clones/cordova-plugin-datepicker-master"
+    "https://git-wip-us.apache.org/repos/asf/cordova-plugin-console.git",
+    "https://git-wip-us.apache.org/repos/asf/cordova-plugin-dialogs.git",
+    "https://git-wip-us.apache.org/repos/asf/cordova-plugin-file.git",
+    "https://github.com/apache/cordova-plugin-inappbrowser",
+    "https://git-wip-us.apache.org/repos/asf/cordova-plugin-network-information.git",
+    "https://git-wip-us.apache.org/repos/asf/cordova-plugin-splashscreen.git",
+    "https://github.com/apache/cordova-plugin-statusbar.git",
+    "https://github.com/katzer/cordova-plugin-email-composer.git",
+    "https://github.com/katzer/cordova-plugin-local-notifications.git",
+    "https://github.com/localytics/phonegap.git",
+    "https://github.com/Telerik-Verified-Plugins/HealthKit",
+    "https://github.com/mobimentum/phonegap-plugin-loading-spinner.git",
+    "https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git",
+    "https://github.com/leecrossley/cordova-plugin-pedometer.git",
+    "https://github.com/Sharinglabs/cordova-plugin-datepicker.git"
   ]
 }
