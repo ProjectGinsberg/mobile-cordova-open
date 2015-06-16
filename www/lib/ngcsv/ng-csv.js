@@ -3,6 +3,72 @@
 // Create all modules and define dependencies to make sure they exist
 // and are loaded in the correct order to satisfy dependency injection
 // before all nested files are concatenated by Grunt
+ 
+      // private property
+        var _keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+        
+      // private method for UTF-8 encoding
+        var _utf8_encode = function (string) {
+            string = string.replace(/\r\n/g,"\n");
+            var utftext = "";
+
+            for (var n = 0; n < string.length; n++) {
+
+                var c = string.charCodeAt(n);
+
+                if (c < 128) {
+                    utftext += String.fromCharCode(c);
+                }
+                else if((c > 127) && (c < 2048)) {
+                    utftext += String.fromCharCode((c >> 6) | 192);
+                    utftext += String.fromCharCode((c & 63) | 128);
+                }
+                else {
+                    utftext += String.fromCharCode((c >> 12) | 224);
+                    utftext += String.fromCharCode(((c >> 6) & 63) | 128);
+                    utftext += String.fromCharCode((c & 63) | 128);
+                }
+
+            }
+
+            return utftext;
+        };
+        
+      // public method for encoding
+        var encode = function (input) {
+            var output = "";
+            var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
+            var i = 0;
+
+            input = _utf8_encode(input);
+
+            while (i < input.length) {
+
+                chr1 = input.charCodeAt(i++);
+                chr2 = input.charCodeAt(i++);
+                chr3 = input.charCodeAt(i++);
+
+                enc1 = chr1 >> 2;
+                enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
+                enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
+                enc4 = chr3 & 63;
+
+                if (isNaN(chr2)) {
+                    enc3 = enc4 = 64;
+                } else if (isNaN(chr3)) {
+                    enc4 = 64;
+                }
+
+                output = output +
+                _keyStr.charAt(enc1) + _keyStr.charAt(enc2) +
+                _keyStr.charAt(enc3) + _keyStr.charAt(enc4);
+
+            }
+
+            return output;
+        };
+
+      
 
 // Config
 angular.module('ngCsv.config', []).
@@ -293,6 +359,8 @@ angular.module('ngCsv.directives').
           };
         }
       ],
+      
+
       link: function (scope, element, attrs) {
         function doClick() {
           var charset = scope.charset || "utf-8";
@@ -311,6 +379,14 @@ angular.module('ngCsv.directives').
 
             $document.find('body').append(downloadLink);
             $timeout(function () {
+                var en = encode(scope.csv);
+               cordova.plugins.email.open({
+                    to:      '',
+                    subject: 'My Ginsberg Data',
+                    body:    'See attached Ginsberg Data',
+                    attachments: 'base64:data.csv//'+encode(scope.csv)
+                }); 
+              /*
               var dl = downloadLink[0];
               dl.click();
               downloadLink[0].click();
@@ -321,7 +397,7 @@ angular.module('ngCsv.directives').
               window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
               
               console.log("Tried local file system");
-              
+              */
             }, null);
           }
         }
