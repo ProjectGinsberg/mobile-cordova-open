@@ -146,8 +146,10 @@ function($scope,$rootScope,$ionicModal,$state,ProfileService,UserService,LoginSe
       }).then(function(modal) {
         $scope.disableModal = modal;
       });
-      $scope.openDisableModal = function() {
-        $scope.disableModal.show();
+      $scope.openDisableModal = function(alltheway) {
+          $scope.disableModal.show();
+          document.getElementById("disableButton").style.display = alltheway? "none": "block";
+          document.getElementById("deleteButton").style.display = !alltheway? "none": "block";
       };
       $scope.closeDisableModal = function() {
         disableDisable();
