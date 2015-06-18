@@ -108,7 +108,8 @@
                <span class='card-title'>Export Data</span>
            </div>
           <div class="item-input">
-              <button class="button button-block button-positive" ng-csv="exportData()" csv-header="getHeader()" filename="test" field-separator="," decimal-separator=".">Export to CSV file</button>
+              <button ng-click="exportCSV()" class="button button-block button-positive">Export data</button>
+              <!--button class="button button-block button-positive" ng-csv="exportData()" csv-header="getHeader()" filename="test" field-separator="," decimal-separator=".">Export to CSV file</button-->
           </div>
       </div>
       <div class="card settingsCard">
