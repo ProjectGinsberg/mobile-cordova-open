@@ -4,7 +4,7 @@ angular.module('gb.services')
     var ls = {};
 
     ls.simpleLogin = function(email,password) {
-        var url = 'https://platform.ginsberg.io/account/GetAppAccessToken';
+        var url = 'https://splatform.ginsberg.io/account/GetAppAccessToken';
         var payload = {
             email:email,
             clientId:$rootScope.clientId,
@@ -59,13 +59,13 @@ angular.module('gb.services')
     var BASE_URL = "ginsberg.io";
 
     //Testing
-    var SIGNUP_URL = "https://platform.ginsberg.io/account/signup";
-    var CONNECTIONS_URL = "https://platform.ginsberg.io/account/myconnections";
-    var AUTHORIZATIONS_URL_START = function() { return "https://platform."+BASE_URL+"/authorisation/auth?response_type=code&client_id="; };
-    var ACCESS_TOKEN_URL = function() { return "https://platform."+BASE_URL+"/authorisation/token"; };
-    var HTTPAPI = function() { return "https://api."+BASE_URL; };
+    var SIGNUP_URL = "https://splatform.ginsberg.io/account/signup";
+    var CONNECTIONS_URL = "https://splatform.ginsberg.io/account/myconnections";
+    var AUTHORIZATIONS_URL_START = function() { return "https://splatform."+BASE_URL+"/authorisation/auth?response_type=code&client_id="; };
+    var ACCESS_TOKEN_URL = function() { return "https://splatform."+BASE_URL+"/authorisation/token"; };
+    var HTTPAPI = function() { return "https://sapi."+BASE_URL; };
     var HTTPWWW = function() { return "https://www."+BASE_URL; };
-    var HTTPPLAT = function() { return "https://platform."+BASE_URL; };
+    var HTTPPLAT = function() { return "https://splatform."+BASE_URL; };
 
     var AUTHORIZATION_URL_END = "&scope=BasicDemographicRead%20SubjectiveRead%20SubjectiveWrite%20ObjectiveRead%20ObjectiveWrite&redirect_uri=ginsberg://activation_code";
     ls.TOKEN_STORE_KEY = "Token";

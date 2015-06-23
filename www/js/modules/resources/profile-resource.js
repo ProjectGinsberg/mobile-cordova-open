@@ -1,7 +1,7 @@
 angular.module('gb.resources')
 .factory('Profile', ['$resource',
 function($resource) {
-    return $resource('https://api.ginsberg.io/v1/me', {},
+    return $resource('https://sapi.ginsberg.io/v1/me', {},
     {
         query: {method: 'GET', isArray: false },
         save: {method: 'POST', isArray: false },

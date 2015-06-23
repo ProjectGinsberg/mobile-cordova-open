@@ -26,7 +26,14 @@ angular.module('gb.signup')
                               $scope.password = '';
                               $scope.loginMessage = '';
                           } else {
-                              $scope.loginMessage = "Sorry! incorrect username or password.";
+                              if(result.data.status === 307)
+                              {
+                                $scope.loginMessage = "Account disabled. Please reenable online at ginsberg.io";                                  
+                              }
+                              else
+                              {
+                                $scope.loginMessage = "Sorry! incorrect username or password.";
+                              }
                           }
                         }).catch(function(err) {
                             SpinnerService.show(false);
