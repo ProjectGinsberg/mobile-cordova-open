@@ -44,7 +44,7 @@ function($scope,$rootScope,$ionicModal,$state,ProfileService,UserService,LoginSe
     $scope.loadConnections = function() {
         AnalyticsService.event('Settings Screen', {'Action':'Load Connections'});
 
-        window.open('https://splatform.ginsberg.io/account/myconnections', '_system');
+        window.open('https://platform.ginsberg.io/account/myconnections', '_system');
     };
 
 

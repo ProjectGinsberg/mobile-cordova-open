@@ -20,7 +20,7 @@ angular.module('gb.resources')
 	'use strict';
 	// FIXME: This might be better modelled as a service, since
 	// it's not very resource like i.e. no save() or delete()
- 	var resource = $resource('https://sapi.ginsberg.io/v1/data/:series', {}, {
+ 	var resource = $resource('https://api.ginsberg.io/v1/data/:series', {}, {
 		get: {
 			method: 'GET',
 			transformResponse: function(body, headers) {

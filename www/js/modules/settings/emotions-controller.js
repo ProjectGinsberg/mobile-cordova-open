@@ -9,7 +9,7 @@ function($scope,$state,$rootScope,$http,
     var wellbeing = UserService.getWellbeingQuestions();
     /*var req = {
         method: 'GET',
-        url:  'https://sapi.ginsberg.io/v1/measures',
+        url:  'https://api.ginsberg.io/v1/measures',
         headers: {
          'Authorization': 'Bearer ' + localStorage.token
         },

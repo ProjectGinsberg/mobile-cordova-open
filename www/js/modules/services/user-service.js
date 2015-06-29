@@ -1,9 +1,9 @@
 angular.module('gb.services')
 .service( 'UserService', ['$q','$http','DbService','$rootScope',function($q,$http, DbService, $rootScope) {
-    var USER_SIGNUP_URL = 'https://splatform.ginsberg.io/account/externalsignup';
-    var USER_DISABLE_URL = 'https://splatform.ginsberg.io/Diagnostics/DisableAccount';
-    var USER_DELETE_URL = 'https://splatform.ginsberg.io/Diagnostics/DeleteAccount';
-    var USER_PROFILE_URL = 'https://sapi.ginsberg.io/v1/me';
+    var USER_SIGNUP_URL = 'https://platform.ginsberg.io/account/externalsignup';
+    var USER_DISABLE_URL = 'https://platform.ginsberg.io/Diagnostics/DisableAccount';
+    var USER_DELETE_URL = 'https://platform.ginsberg.io/Diagnostics/DeleteAccount';
+    var USER_PROFILE_URL = 'https://api.ginsberg.io/v1/me';
     var userService = {};
 
     var userInterestedSections = null;

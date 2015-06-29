@@ -68,7 +68,7 @@ angular.module('gb.auth')
 	// Returns a promise...
 	var login = function(username, password) {
 		$log.log("Attempting to log in as ", username);
-		var loginUrl = 'https://splatform.ginsberg.io/account/externalsignin'//$sce.getTrustedUrl('https://splatform.ginsberg.io/account/externalsignin')//(Environment.platform('/account/externalsignin'));
+		var loginUrl = 'https://platform.ginsberg.io/account/externalsignin'//$sce.getTrustedUrl('https://platform.ginsberg.io/account/externalsignin')//(Environment.platform('/account/externalsignin'));
 		var promise = $http
 			.post(loginUrl, {email: username, password: password})
 			.then(function(resp) {
@@ -90,7 +90,7 @@ angular.module('gb.auth')
 	// Returns a promise
  	var logout = function() {
  		$log.log("Logging out...");
-		var logoutUrl = $sce.getTrustedUrl('https://splatform.ginsberg.io/account/signout')//(Environment.platform('/account/signout'));
+		var logoutUrl = $sce.getTrustedUrl('https://platform.ginsberg.io/account/signout')//(Environment.platform('/account/signout'));
 
 		// HACK: Temporarily redirect to platform page
 		window.location = logoutUrl;
